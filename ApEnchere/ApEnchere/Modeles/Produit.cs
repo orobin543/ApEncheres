@@ -27,9 +27,10 @@ namespace ApEnchere.Modeles
 
             Id = id;
             Nom = nom;
-            Produit.CollClasse.Add(this);
+           
             _photo = photo;
-            _prixreel = prixreel;
+            _prixreel = prixreel; 
+            Produit.CollClasse.Add(this);
         }
 
         #endregion

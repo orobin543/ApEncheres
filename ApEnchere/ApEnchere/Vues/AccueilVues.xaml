@@ -31,10 +31,9 @@
                                         <Grid RowDefinitions="100,5">
                                             <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
                                                 <Grid>
-                                                    <Label Text="{Binding Produit_id}"
-                                                    HorizontalOptions="Center" 
-                                                    TextColor="White" 
-                                                    FontAttributes="Bold"/>
+                                                <Label Text="{Binding Id}"/>
+                                                <Image Source="{Binding LeProduit.Photo}"
+                                                    />
                                                 </Grid>
                                             </Frame>
                                         </Grid>
@@ -59,7 +58,7 @@
                                         <Grid RowDefinitions="100,5">
                                             <Frame BackgroundColor="Blue" HasShadow="False"  CornerRadius="10">
                                                 <Grid>
-                                                    <Label Text="{Binding Produit_id}"
+                                                    <Label Text=""
                                             HorizontalOptions="Start" 
                                             TextColor="White" 
                                             FontAttributes="Bold"/>
