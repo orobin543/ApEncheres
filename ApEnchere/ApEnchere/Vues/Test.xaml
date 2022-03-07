@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ApEnchere.Vues.Test">
+
+    <Frame
+       HasShadow="True"
+       HeightRequest="120"
+       WidthRequest="120">
+        <Frame.Background>
+            <!--Dégradé-->
+            <LinearGradientBrush >
+                <GradientStop Color="Purple" Offset="0" />
+                <GradientStop Color="Pink" Offset="1"/>
+                <GradientStop Color="Wheat" Offset="2"/>
+            </LinearGradientBrush>
+        </Frame.Background>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="*" />
+
+            </Grid.ColumnDefinitions>
+        
+
+    <!--<Button BackgroundColor="#E6287A" Grid.Row="0" Grid.Column="0" Text="Button 0,0" TextColor="White" />
+    <Button BackgroundColor="#EE5D9B" Grid.Row="0" Grid.Column="1" Text="Button 0,1" TextColor="White" />
+    <Button BackgroundColor="#F87EB2" Grid.Row="1" Grid.Column="0" Text="Button 1,0" TextColor="White" />
+    <Button BackgroundColor="#B90E57" Grid.Row="1" Grid.Column="1" Text="Button 1,1" TextColor="White" />
+    <Button BackgroundColor="#CB3B78" Grid.Row="2" Grid.Column="0" Text="Button 2,0" TextColor="White" />
+            <Button BackgroundColor="#DE7FA7" Grid.Row="2" Grid.Column="1" Text="Button 2,1" TextColor="White" /> -->
+
+            <StackLayout HorizontalOptions="Center" Margin="20,160,20,0">
+                <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
+                    <CollectionView ItemsSource="{Binding MaListeEncheres}" VerticalOptions="Fill" SelectionMode="Single">
+                        <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="1" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="1">
+
+                                
+                                    <Grid>
+                                        <Label Text="{Binding Produit_id}"
+                                            HorizontalOptions="Start" 
+                                            TextColor="White" 
+                                            FontAttributes="Bold"/>
+
+                                    </Grid>
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+        </CollectionView>
+               </Frame>
+    </StackLayout>
+
+            <StackLayout HorizontalOptions="Center" Margin="20,160,20,0">
+                <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
+                    <CollectionView ItemsSource="{Binding MaListeEnchereEnCours}" VerticalOptions="Fill" SelectionMode="Single">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="2" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowDefinitions="2">
+
+
+                                    <Grid>
+                                        <Label Text="{Binding Produit_id}"
+                                            HorizontalOptions="Start" 
+                                            TextColor="White" 
+                                            FontAttributes="Bold"/>
+
+
+                                    </Grid>
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </Frame>
+    <!-- 2de idée
+    -->
+</ContentPage>

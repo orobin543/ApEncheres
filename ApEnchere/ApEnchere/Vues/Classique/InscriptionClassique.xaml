@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ApEnchere.Vues.Classique.InscriptionClassique">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid>
+                <BoxView Grid.RowSpan="3" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <BoxView.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="Purple" Offset="0"/>
+                            <GradientStop Color="Pink" Offset="1"/>
+                            <GradientStop Color="Wheat" Offset="2"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+
+                <Label Text="Inscription pour l'enchère"/>
+
+                <StackLayout Grid.Row="1" HorizontalOptions="Center" Margin="40,40,40,0" Spacing="50">
+                    <!--Spacing espace entre 2 -->
+                    <Entry
+                        x:Name="InscriptionClassique"
+                        Text="Identifiant"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        CornerRadius="56"/>
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
