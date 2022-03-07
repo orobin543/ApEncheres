@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace ApEnchere.Vues.Classique
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InscriptionClassique : ContentPage
+    public partial class EnchereClassiques : ContentPage
     {
-        public InscriptionClassique()
+        public EnchereClassiques()
         {
             InitializeComponent();
-        }
-
-        void PlaceEnchereClassique(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new EnchereClassiques());
         }
     }
 }

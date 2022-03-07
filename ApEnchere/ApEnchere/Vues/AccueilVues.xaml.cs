@@ -1,5 +1,6 @@
 ﻿using ApEnchere.VueModeles;
 using ApEnchere.Vues.Classique;
+using ApEnchere.Vues.Inversee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace ApEnchere.Vues
 
         void Inversees_Clicked(object senser, System.EventArgs e)
         {
-            Navigation.PushAsync(new InscriptionVues());
+            Navigation.PushAsync(new InscriptionInversees());
         }
 
         void Flash_Clicked(object senser, System.EventArgs e)

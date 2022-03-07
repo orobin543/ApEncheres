@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace ApEnchere.Vues.Classique
+namespace ApEnchere.Vues.Inversee
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InscriptionClassique : ContentPage
+    public partial class EnchereInversees : ContentPage
     {
-        public InscriptionClassique()
+        public EnchereInversees()
         {
             InitializeComponent();
-        }
-
-        void PlaceEnchereClassique(object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new EnchereClassiques());
         }
     }
 }

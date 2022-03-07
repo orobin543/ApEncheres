@@ -1,105 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ApEnchere.Vues.Classique.InscriptionClassique">
+             x:Class="ApEnchere.Vues.Classique.EnchereClassiques">
     <ContentPage.Content>
         <StackLayout>
             <ScrollView VerticalOptions="FillAndExpand">
                 <Grid>
-                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                    <BoxView.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="Purple" Offset="0"/>
-                            <GradientStop Color="Pink" Offset="1"/>
-                            <GradientStop Color="Wheat" Offset="2"/>
-                        </LinearGradientBrush>
-                    </BoxView.Background>
-                </BoxView>
-                
-                
-               <Frame BackgroundColor="PeachPuff" CornerRadius="30" Margin="40, 20, 40, 0">
-                    <StackLayout HorizontalOptions="Center" Spacing="50">
-                        <!--Spacing espace entre 2 -->
+                    <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <BoxView.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="Purple" Offset="0"/>
+                                <GradientStop Color="Pink" Offset="1"/>
+                                <GradientStop Color="Wheat" Offset="2"/>
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
 
-                 <Label Text="Inscription pour l'enchère" VerticalOptions="Center" TextColor="SaddleBrown" FontSize="Title"/>
-                    
-                    <Entry
-                        x:Name="InscriptionClass"
+
+                    <Frame BackgroundColor="PeachPuff" CornerRadius="30" Margin="40, 20, 40, 0">
+                        <StackLayout HorizontalOptions="Center" Spacing="50">
+                            <!--Spacing espace entre 2 -->
+
+                            <Label Text="Inscription pour l'enchère" VerticalOptions="Center" TextColor="SaddleBrown" FontSize="Title"/>
+
+                            <Entry
+                        x:Name="InscriptionInvers"
                         Text="Identifiant"
                         BackgroundColor="PeachPuff"
                         TextColor="SaddleBrown"
                         WidthRequest="275"
                         MaxLength="30"/>
 
-                    <Entry
-                        x:Name="MdpClass"
+                            <Entry
+                        x:Name="MdpInvers"
                         Text="Mot de Passe"
                         BackgroundColor="PeachPuff"
                         TextColor="SaddleBrown"
                         WidthRequest="275"
                         MaxLength="30"/>
 
-                    <Entry
-                        x:Name="NomClass"
+                            <Entry
+                        x:Name="NomInvers"
                         Text="NOM"
                         BackgroundColor="PeachPuff"
                         TextColor="SaddleBrown"
                         WidthRequest="275"
                         MaxLength="30"/>
 
-                    <Entry
-                        x:Name="PrenomClass"
+                            <Entry
+                        x:Name="PrenomInvers"
                         Text="Prénom"
                         BackgroundColor="PeachPuff"
                         TextColor="SaddleBrown"
                         WidthRequest="275"
                         MaxLength="30"/>
 
-                    <Entry
-                        x:Name="AdresseClass"
+                            <Entry
+                        x:Name="AdresseInvers"
                         Text="Adresse"
                         BackgroundColor="PeachPuff"
                         TextColor="SaddleBrown"
                         WidthRequest="275"
                         MaxLength="30"/>
 
-                    <Entry
-                        x:Name="VilleClass"
+                            <Entry
+                        x:Name="VilleInvers"
                         Text="Ville"
                         BackgroundColor="PeachPuff"
                         TextColor="SaddleBrown"
                         WidthRequest="275"
                         MaxLength="30"/>
 
-                    <Entry
-                        x:Name="CpClass"
+                            <Entry
+                        x:Name="CpInvers"
                         Text="Code Postal"
                         BackgroundColor="PeachPuff"
                         TextColor="SaddleBrown"
                         WidthRequest="275"
                         MaxLength="30"/>
 
-                    <Entry
-                        x:Name="NumTelClass"
+                            <Entry
+                        x:Name="NumTelInvers"
                         Text="Numéro de téléphone"
                         BackgroundColor="PeachPuff"
                         TextColor="SaddleBrown"
                         WidthRequest="275"
                         MaxLength="30"/>
 
-                     <Button
-                        x:Name="BtnInscriptionClass"
+                            <Button
+                        x:Name="BtnInscriptionInvers"
                         Text="Inscription à l'enchère"
                         BackgroundColor="SaddleBrown"
                         TextColor="PeachPuff"
-                        Clicked="PlaceEnchereClassique"
                          CornerRadius="35"
                         />
-                     </StackLayout>
-                   
-                    </Frame> 
-                   
-            </Grid>
+                        </StackLayout>
+
+                    </Frame>
+
+                </Grid>
             </ScrollView>
         </StackLayout>
     </ContentPage.Content>
