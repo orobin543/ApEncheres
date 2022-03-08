@@ -4,77 +4,75 @@
              x:Class="ApEnchere.Vues.AccueilVues">
     <ContentPage.Content>
         <ScrollView VerticalOptions="FillAndExpand">
-            
-                <!--   <ScrollView VerticalOptions="FillAndExpand"> -->
-                <Grid>
-                    <BoxView>
-                        <BoxView.Background>
-                            <LinearGradientBrush>
-                                <GradientStop Color="Purple" Offset="0"/>
-                                <GradientStop Color="Pink" Offset="1"/>
-                                <GradientStop Color="Wheat" Offset="2"/>
-                            </LinearGradientBrush>
-                        </BoxView.Background>
-                    </BoxView>
+
+            <Grid>
+                <BoxView>
+                    <BoxView.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#9D3E0C" Offset="0"/>
+                            <GradientStop Color="Wheat" Offset="1"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
 
 
 
 
-                    <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
-                        <ScrollView HeightRequest="300">
-                            <CollectionView ItemsSource="{Binding MaListeEncheres}" VerticalOptions="Fill" SelectionMode="Single">
-                                <CollectionView.ItemsLayout>
-                                    <GridItemsLayout Orientation="Vertical"/>
-                                </CollectionView.ItemsLayout>
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid RowDefinitions="100,5">
-                                            <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
-                                                <Grid>
-                                                <Label Text="{Binding Id}"/>
+                <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
+                    <ScrollView HeightRequest="300">
+                        <CollectionView ItemsSource="{Binding MaListeEncheres}" VerticalOptions="Fill" SelectionMode="Single">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowDefinitions="100,5">
+                                        <Frame BackgroundColor="#842E1B" HasShadow="True"  CornerRadius="10">
+                                            <Grid>
+                                                <Label Text="{Binding Id}" TextColor="Azure"/>
+
+                                                <Label Text="{Binding LeType}" TextColor="Snow"/>
                                                 <Image Source="{Binding LeProduit.Photo}"
                                                     />
-                                                </Grid>
-                                            </Frame>
-                                        </Grid>
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
 
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </ScrollView>
-
-
-                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
 
 
-                    <StackLayout HorizontalOptions="Center" Margin="20,500,20,0">
-                        <ScrollView HeightRequest="300">
-                            <CollectionView ItemsSource="{Binding MaListeEnchereEnCours}" VerticalOptions="Fill" SelectionMode="Single">
-                                <CollectionView.ItemsLayout>
-                                    <GridItemsLayout Orientation="Vertical" Span="1" />
-                                </CollectionView.ItemsLayout>
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid RowDefinitions="100,5">
-                                            <Frame BackgroundColor="Blue" HasShadow="False"  CornerRadius="10">
-                                                <Grid>
-                                                    <Label Text=""
-                                            HorizontalOptions="Start" 
-                                            TextColor="White" 
-                                            FontAttributes="Bold"/>
-                                                </Grid>
-                                            </Frame>
-                                        </Grid>
+                </StackLayout>
 
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </ScrollView>
-                    </StackLayout>
 
-                    <StackLayout HorizontalOptions="Center" Margin="0,1000,0,0" Spacing="30" Orientation="Vertical">
-                        <!--Spacing espace entre 2 -->
-                        <Button  x:Name="Classique"
+                <StackLayout HorizontalOptions="Center" Margin="20,500,20,0">
+                    <ScrollView HeightRequest="300">
+                        <CollectionView ItemsSource="{Binding MaListeEnchereEnCours}" VerticalOptions="Fill" SelectionMode="Single">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="1" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowDefinitions="100,5">
+                                        <Frame BackgroundColor="#B67823" HasShadow="True"  CornerRadius="10">
+                                            <Grid>
+                                                <Label Text="{Binding Id}" TextColor="Azure"/>
+                                                <Label Text="{Binding LeType}" TextColor="Snow"/>
+                                                <Image Source="{Binding LeProduit.Photo}"/>
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Center" Margin="0,1000,0,0" Spacing="30" Orientation="Vertical">
+                    <!--Spacing espace entre 2 -->
+                    <Button  x:Name="Classique"
                         Text="Classique"
                         Clicked="Classique_Clicked"
                         BackgroundColor="PeachPuff"
@@ -83,7 +81,7 @@
                         WidthRequest="150"
                         HeightRequest="46"/>
 
-                        <Button  x:Name="Inversees"
+                    <Button  x:Name="Inversees"
                         Text="Inversees"
                         Clicked="Inversees_Clicked"
                         BackgroundColor="PeachPuff"
@@ -92,7 +90,7 @@
                         WidthRequest="150"
                         HeightRequest="46"/>
 
-                        <Button  x:Name="Flash"
+                    <Button  x:Name="Flash"
                         Text="Flash"
                         Clicked="Flash_Clicked"
                         BackgroundColor="PeachPuff"
@@ -101,12 +99,10 @@
                         WidthRequest="150"
                         HeightRequest="46"/>
 
-                        <Button Text="Inscription" Clicked="Inscription_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="Center"></Button>
-                        <Button Text="Test" Clicked="Test_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="End" ></Button>
-                    </StackLayout>
-                </Grid>
-                <!--   </ScrollView> -->
-          
+                    <Button Text="Inscription" Clicked="Inscription_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="Center"></Button>
+                    <Button Text="Test" Clicked="Test_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="End" ></Button>
+                </StackLayout>
+            </Grid>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

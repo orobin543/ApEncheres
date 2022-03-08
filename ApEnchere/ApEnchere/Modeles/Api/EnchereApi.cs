@@ -14,7 +14,9 @@ namespace ApEnchere.Modeles.Api
             private DateTime _date_fin;
             private float _prixreserve;
             private int _type_enchere_id;
-            private Produit _leProduit;
+
+        private TypeEnchere _leType;
+        private Produit _leProduit;
         
 
             #endregion
@@ -22,7 +24,7 @@ namespace ApEnchere.Modeles.Api
             #region Constructeurs
 
            
-            public EnchereApi(int id, DateTime date_debut, DateTime date_fin, float prixreserve, int type_enchere_id, Produit leProduit)
+            public EnchereApi(int id, DateTime date_debut, DateTime date_fin, float prixreserve, int type_enchere_id, Produit leProduit, TypeEnchere leType)
             {
                 _id = id;
                 _date_debut = date_debut;
@@ -30,6 +32,7 @@ namespace ApEnchere.Modeles.Api
                 _prixreserve = prixreserve;
                 _type_enchere_id = type_enchere_id;
             _leProduit = leProduit;
+            _leType = leType;
                 EnchereApi.CollClasse.Add(this);
 
             }
@@ -45,6 +48,7 @@ namespace ApEnchere.Modeles.Api
             public float Prixreserve { get => _prixreserve; set => _prixreserve = value; }
             public int Type_enchere_id { get => _type_enchere_id; set => _type_enchere_id = value; }
             public Produit LeProduit { get => _leProduit; set => _leProduit = value; }
+        public TypeEnchere LeType { get => _leType; set => _leType = value; }
             #endregion
 
             #region Methodes
