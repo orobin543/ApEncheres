@@ -2,89 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ApEnchere.Vues.Test">
-    <!--  <StackLayout>
-        <ScrollView VerticalOptions="FillAndExpand">
-            <Grid>
-                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                    <BoxView.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="Purple" Offset="0"/>
-                            <GradientStop Color="Pink" Offset="1"/>
-                            <GradientStop Color="Wheat" Offset="2"/>
-                        </LinearGradientBrush>
-                    </BoxView.Background>
-                </BoxView>
-
-
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition  Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <StackLayout HorizontalOptions="Center" Margin="20,160,20,0">
-                        <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
-                            <CollectionView ItemsSource="{Binding MaListeEncheres}" VerticalOptions="Fill" SelectionMode="Single">
-                                <CollectionView.ItemsLayout>
-                                    <GridItemsLayout Orientation="Vertical" Span="1" />
-                                </CollectionView.ItemsLayout>
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="30"></RowDefinition>
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="15"></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-
-                                            <Label Text="{Binding Produit_id}"
-                                            HorizontalOptions="Start" 
-                                            TextColor="White" 
-                                            FontAttributes="Bold"/>
-
-
-
-                                        </Grid>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </Frame>
-                    </StackLayout>
-
-                    <StackLayout HorizontalOptions="Center" Margin="20,160,20,0">
-                        <Frame BackgroundColor="#BF043055" HasShadow="False"  CornerRadius="10">
-                            <CollectionView ItemsSource="{Binding MaListeEnchereEnCours}" VerticalOptions="Fill" SelectionMode="Single">
-                                <CollectionView.ItemsLayout>
-                                    <GridItemsLayout Orientation="Vertical" Span="2" />
-                                </CollectionView.ItemsLayout>
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid RowDefinitions="2">
-
-
-                                            <Grid>
-                                                <Label Text="{Binding Produit_id}"
-                                            HorizontalOptions="Start" 
-                                            TextColor="White" 
-                                            FontAttributes="Bold"/>
-
-
-                                            </Grid>
-
-                                        </Grid>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </Frame>
-                    </StackLayout>
-                </Grid>
-            </Grid>
-        </ScrollView> -->
+    <BoxView>
+        <BoxView.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#9D3E0C" Offset="0"/>
+                <GradientStop Color="Wheat" Offset="1"/>
+            </LinearGradientBrush>
+        </BoxView.Background>
+    </BoxView>
 </ContentPage>
         

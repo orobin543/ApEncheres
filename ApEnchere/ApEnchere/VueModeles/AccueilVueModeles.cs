@@ -66,6 +66,8 @@ namespace ApEnchere.VueModeles
             Resultat = await _apiServices.PostAsync<Encheres>
                    (uneEnchere, "api/postEnchere");
         }*/
+
+       
         #endregion
     }
 }

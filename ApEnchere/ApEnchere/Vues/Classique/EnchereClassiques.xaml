@@ -3,24 +3,91 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ApEnchere.Vues.Classique.EnchereClassiques">
     <ContentPage.Content>
-        <StackLayout>
-            <ScrollView VerticalOptions="FillAndExpand">
+        <ScrollView VerticalOptions="FillAndExpand">
+
                 <Grid>
-                    <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <BoxView>
                         <BoxView.Background>
                             <LinearGradientBrush>
-                                <GradientStop Color="Purple" Offset="0"/>
-                                <GradientStop Color="Pink" Offset="1"/>
-                                <GradientStop Color="Wheat" Offset="2"/>
+                                <GradientStop Color="#9D3E0C" Offset="0"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
                             </LinearGradientBrush>
                         </BoxView.Background>
                     </BoxView>
 
+                <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
+                    <CollectionView ItemsSource="{Binding MaListeEncheres}" VerticalOptions="Fill" SelectionMode="Single">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowDefinitions="100,5">
+                                        <Frame BackgroundColor="#842E1B" HasShadow="True"  CornerRadius="10">
+                                            <Grid>
+                                                <Label Text="{Binding Nom}" VerticalOptions="Start" TextColor="#3A020D"/>
 
-                    <Frame BackgroundColor="PeachPuff" CornerRadius="30" Margin="40, 20, 40, 0">
+                                                <Label Text="{Binding PrixReserve}" TextColor="#3A020D" HorizontalOptions="Center" />
+
+                                                <Image Source="{Binding LeProduit.Photo}" HorizontalOptions="End"/>
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Center" Margin="20,300,20,0">
+                    <ScrollView HeightRequest="300">
+                        <CollectionView ItemsSource="{Binding MaListeUserEncherir}" VerticalOptions="Fill" SelectionMode="Single">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowDefinitions="100,5">
+                                        <Frame BackgroundColor="#842E1B" HasShadow="True"  CornerRadius="10">
+                                            <Grid>
+                                                <Label Text="{Binding Pseudo}" VerticalOptions="Start" TextColor="#3A020D"/>
+
+
+                                                <Image Source="{Binding LeProduit.Photo}" HorizontalOptions="End"/>
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Center" Margin="20,300,20,0">
+                    <ScrollView HeightRequest="300">
+                        <CollectionView ItemsSource="{Binding MaListeUserEncherir}" VerticalOptions="Fill" SelectionMode="Single">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowDefinitions="100,5">
+                                        <Frame BackgroundColor="#842E1B" HasShadow="True"  CornerRadius="10">
+                                            <Grid>
+                                                <Entry Text="Proposez un prix"/>
+                                                <Button Text="Encherir" Clicked="EncherirClassique"/>
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+                </StackLayout>
+
+                <!--<Frame BackgroundColor="PeachPuff" CornerRadius="30" Margin="40, 20, 40, 0">
                         <StackLayout HorizontalOptions="Center" Spacing="50">
-                            <!--Spacing espace entre 2 -->
-
+                            Spacing espace entre 2 
+                            
                             <Label Text="Inscription pour l'enchère" VerticalOptions="Center" TextColor="SaddleBrown" FontSize="Title"/>
 
                             <Entry
@@ -96,10 +163,9 @@
                         />
                         </StackLayout>
 
-                    </Frame>
+                    </Frame>-->
 
-                </Grid>
-            </ScrollView>
-        </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

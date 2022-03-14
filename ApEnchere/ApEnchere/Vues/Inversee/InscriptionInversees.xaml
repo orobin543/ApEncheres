@@ -6,12 +6,11 @@
         <StackLayout>
             <ScrollView VerticalOptions="FillAndExpand">
                 <Grid>
-                    <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <BoxView>
                         <BoxView.Background>
                             <LinearGradientBrush>
-                                <GradientStop Color="Purple" Offset="0"/>
-                                <GradientStop Color="Pink" Offset="1"/>
-                                <GradientStop Color="Wheat" Offset="2"/>
+                                <GradientStop Color="#9D3E0C" Offset="0"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
                             </LinearGradientBrush>
                         </BoxView.Background>
                     </BoxView>

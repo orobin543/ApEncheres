@@ -49,7 +49,7 @@
 
                 <StackLayout HorizontalOptions="Center" Margin="20,500,20,0">
                     <ScrollView HeightRequest="300">
-                        <CollectionView ItemsSource="{Binding MaListeEnchereEnCours}" VerticalOptions="Fill" SelectionMode="Single">
+                        <CollectionView ItemsSource="{Binding MaListeEnchereEnCours}" VerticalOptions="Fill" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical" Span="1" />
                             </CollectionView.ItemsLayout>
@@ -59,9 +59,9 @@
                                         <Frame BackgroundColor="#B67823" HasShadow="True"  CornerRadius="10">
                                             <Grid>
                                                 <Label Text="{Binding Id}" TextColor="Azure"/>
-                                                <Label Text="{Binding LeType}" TextColor="Snow"/>
                                                 <Image Source="{Binding LeProduit.Photo}"/>
                                             </Grid>
+                                            
                                         </Frame>
                                     </Grid>
                                 </DataTemplate>
@@ -70,7 +70,7 @@
                     </ScrollView>
                 </StackLayout>
 
-                <StackLayout HorizontalOptions="Center" Margin="0,1000,0,0" Spacing="30" Orientation="Vertical">
+                <StackLayout HorizontalOptions="Center" Margin="0,900,0,0" Spacing="30" Orientation="Vertical">
                     <!--Spacing espace entre 2 -->
                     <Button  x:Name="Classique"
                         Text="Classique"

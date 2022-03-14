@@ -3,10 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ApEnchere.Vues.ListeProduitVues">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#9D3E0C" Offset="0"/>
+                    <GradientStop Color="Wheat" Offset="1"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
     </ContentPage.Content>
 </ContentPage>

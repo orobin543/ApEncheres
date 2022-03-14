@@ -15,6 +15,8 @@ namespace ApEnchere.Modeles
         private Encheres _lEnchere;
         private User _leUser;
 
+        
+        public static List<Encherir> CollClasse = new List<Encherir>();
 
         #endregion
 
@@ -25,6 +27,7 @@ namespace ApEnchere.Modeles
             IdEnchere = idEnchere;
             IdUser = idUser;
             PrixEnchere = prixEnchere;
+            Encherir.CollClasse.Add(this);
         }
 
         #endregion

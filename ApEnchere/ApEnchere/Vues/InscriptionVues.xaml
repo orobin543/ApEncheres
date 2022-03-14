@@ -4,11 +4,16 @@
              x:Class="ApEnchere.Vues.InscriptionVues">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <BoxView>
+                <BoxView.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#9D3E0C" Offset="0"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
 
-            <Button Text="Accueil" Clicked="Accueil_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown"></Button>
+                <Button Text="Accueil" Clicked="Accueil_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

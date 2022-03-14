@@ -6,40 +6,26 @@
         <StackLayout>
             <ScrollView VerticalOptions="FillAndExpand">
                 <Grid>
-                <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                    <BoxView.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="Purple" Offset="0"/>
-                            <GradientStop Color="Pink" Offset="1"/>
-                            <GradientStop Color="Wheat" Offset="2"/>
-                        </LinearGradientBrush>
-                    </BoxView.Background>
-                </BoxView>
-                
-                
-               <Frame BackgroundColor="PeachPuff" CornerRadius="30" Margin="40, 20, 40, 0">
+                    <BoxView>
+                        <BoxView.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#9D3E0C" Offset="0"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
+
+
+                    <Frame BackgroundColor="PeachPuff" CornerRadius="30" Margin="40, 20, 40, 0">
                     <StackLayout HorizontalOptions="Center" Spacing="50">
                         <!--Spacing espace entre 2 -->
 
                  <Label Text="Inscription pour l'enchère" VerticalOptions="Center" TextColor="SaddleBrown" FontSize="Title"/>
-                    
-                    <Entry
-                        x:Name="InscriptionClass"
-                        Text="Identifiant"
-                        BackgroundColor="PeachPuff"
-                        TextColor="SaddleBrown"
-                        WidthRequest="275"
-                        MaxLength="30"/>
+                            <Button Text="Ajout Photo"
+                                    Clicked="AjoutPhoto"/>
+                            <Image x:Name="image"/>
 
-                    <Entry
-                        x:Name="MdpClass"
-                        Text="Mot de Passe"
-                        BackgroundColor="PeachPuff"
-                        TextColor="SaddleBrown"
-                        WidthRequest="275"
-                        MaxLength="30"/>
-
-                    <Entry
+                            <Entry
                         x:Name="NomClass"
                         Text="NOM"
                         BackgroundColor="PeachPuff"
@@ -87,7 +73,40 @@
                         WidthRequest="275"
                         MaxLength="30"/>
 
-                     <Button
+
+                            <Entry
+                        x:Name="Password"
+                        Text="Password"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="Pseudo"
+                        Text="Pseudo"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="Email"
+                        Text="Email"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="Photo"
+                        Text="Photo"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Button
                         x:Name="BtnInscriptionClass"
                         Text="Inscription à l'enchère"
                         BackgroundColor="SaddleBrown"
