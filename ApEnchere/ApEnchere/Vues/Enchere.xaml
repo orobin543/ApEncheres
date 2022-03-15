@@ -3,10 +3,64 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ApEnchere.Vues.Enchere">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand">
+
+            <Grid>
+                <BoxView>
+                    <BoxView.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#9D3E0C" Offset="0"/>
+                            <GradientStop Color="Wheat" Offset="1"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+
+                <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
+                    <CollectionView ItemsSource="{Binding MonEnchere}">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowDefinitions="100,5">
+                                        <Frame BackgroundColor="#842E1B" HasShadow="True"  CornerRadius="10">
+                                        <Grid>
+                                                <Image Source="{Binding LeProduit.Photo}"/>
+                                                
+                                                <Label Text="{Binding Nom}"/>
+                                                <Label Text="{Binding LeType}"/>
+                                            <Label Text="{Binding PrixReserve}" />
+
+                                            <CollectionView ItemsSource="{Binding LesEncherir}">
+                                                <CollectionView.ItemsLayout>
+                                                    <GridItemsLayout Orientation="Vertical"/>
+                                                </CollectionView.ItemsLayout>
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid RowDefinitions="100,5">
+                                                            <Frame BackgroundColor="#842E1B" HasShadow="True"  CornerRadius="10">
+                                                                <Grid>
+                                                                    <Label Text="{Binding Pseudo}"/>
+                                                                    <Label Text="{Binding Prix}"/>
+                                                                </Grid>
+                                                            </Frame>
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>  
+                                            
+                                                    
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
