@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ApEnchere.Vues.Page1">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Grid>
+                    <BoxView>
+                        <BoxView.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#9D3E0C" Offset="0"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
+
+
+                    <Frame BackgroundColor="PeachPuff" CornerRadius="30" Margin="40, 20, 40, 0">
+                        <StackLayout HorizontalOptions="Center" Spacing="50">
+                            <!--Spacing espace entre 2 -->
+
+                            <Label Text="Inscription pour l'enchère" VerticalOptions="Center" TextColor="SaddleBrown" FontSize="Title"/>
+                            <Image x:Name="image"/>
+
+                        <Button 
+                            x:Name="Connexion"
+                            Text="Connexion"
+                            BackgroundColor="PeachPuff"
+                            TextColor="SaddleBrown"
+                            WidthRequest="275"
+                            CornerRadius="30"
+                            Clicked="Connexion_Clicked"/>
+
+                        <Button 
+                            x:Name="Inscription"
+                            Text="Inscription"
+                            BackgroundColor="PeachPuff"
+                            TextColor="SaddleBrown"
+                            WidthRequest="275"
+                            CornerRadius="30"
+                            Clicked="Inscription_Clicked"/>
+
+                        <Button 
+                            x:Name="SansConnexion"
+                            Text="Connexion sans identifiant"
+                            BackgroundColor="PeachPuff"
+                            TextColor="SaddleBrown"
+                            WidthRequest="275"
+                            CornerRadius="30"
+                            Clicked="SansConnexion_Clicked"/>
+
+                    </StackLayout>
+
+                    </Frame>
+
+                </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

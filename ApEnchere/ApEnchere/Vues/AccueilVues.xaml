@@ -20,7 +20,7 @@
 
                 <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
                     <ScrollView HeightRequest="300">
-                        <CollectionView ItemsSource="{Binding MaListeEncheres}" VerticalOptions="Fill" SelectionMode="Single">
+                        <CollectionView ItemsSource="{Binding MaListeEncheres}" VerticalOptions="Fill" SelectionMode="Single" SelectionChanged="SelectionChanged_Enchere">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical"/>
                             </CollectionView.ItemsLayout>
@@ -72,7 +72,7 @@
 
                 <StackLayout HorizontalOptions="Center" Margin="0,900,0,0" Spacing="30" Orientation="Vertical">
                     <!--Spacing espace entre 2 -->
-                    <Button  x:Name="Classique"
+                    <!-- <Button  x:Name="Classique"
                         Text="Classique"
                         Clicked="Classique_Clicked"
                         BackgroundColor="PeachPuff"
@@ -100,7 +100,7 @@
                         HeightRequest="46"/>
 
                     <Button Text="Inscription" Clicked="Inscription_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="Center"></Button>
-                    <Button Text="Test" Clicked="Test_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="End" ></Button>
+                   --> <Button Text="Test" Clicked="Test_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="End" ></Button>
                 </StackLayout>
             </Grid>
         </ScrollView>

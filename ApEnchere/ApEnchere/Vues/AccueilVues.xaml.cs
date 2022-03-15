@@ -1,7 +1,5 @@
 ﻿using ApEnchere.Modeles.Api;
 using ApEnchere.VueModeles;
-using ApEnchere.Vues.Classique;
-using ApEnchere.Vues.Inversee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +21,10 @@ namespace ApEnchere.Vues
             BindingContext = vueModel = new AccueilVueModeles();
         }
 
-       /* void Classique_Clicked(object sender, System.EventArgs e)
+      /* void Classique_Clicked(object sender, System.EventArgs e)
         {
            Navigation.PushAsync(new InscriptionClassique());
-        }*/
+        }
 
         void Inversees_Clicked(object senser, System.EventArgs e)
         {
@@ -42,24 +40,24 @@ namespace ApEnchere.Vues
         {
             Navigation.PushAsync(new InscriptionVues());
         }
-
+      */
         void Test_Clicked(object senser, System.EventArgs e)
         {
             Navigation.PushAsync(new Test());
         }
 
-       /* void RecuperationIdEnchere(object sender, EventArgs e)
-        {
-            (sender as Button).IsEnabled = false; //associe l'argument à l'envoie des données
-
-            Navigation.PushAsync(new InscriptionClassique());
-        }*/
-
         private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var current = (EnchereApi) e.CurrentSelection.FirstOrDefault(); //récupère l'objet 
+            var current = (EnchereApi) e.CurrentSelection.FirstOrDefault(); //récupère l'objet ici l'id de l'enchère
 
-            Navigation.PushAsync(new InscriptionClassique(current.Id));
+            Navigation.PushAsync(new EnchereEnCours(current.Id));
+        }
+
+        private void SelectionChanged_Enchere(object sender, SelectionChangedEventArgs e)
+        {
+            var current = (EnchereApi)e.CurrentSelection.FirstOrDefault(); //récupère l'objet ici l'id de l'enchère
+
+            Navigation.PushAsync(new Enchere(current.Id));
         }
     }
 }

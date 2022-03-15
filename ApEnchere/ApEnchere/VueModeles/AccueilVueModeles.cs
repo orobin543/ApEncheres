@@ -26,8 +26,6 @@ namespace ApEnchere.VueModeles
         #endregion
 
         #region Getters/Setters
-        // public ObservableCollection<EnchereApi> MaListeEncheres { get => _maListeEncheres; set => _maListeEncheres = value; }
-
 
         public ObservableCollection<EnchereApi> MaListeEncheres
         {

@@ -64,7 +64,7 @@ namespace ApEnchere.Services
             }
         }
 
-        public async Task<T> GetOneAsync<T>(string paramUrl, List<T> param, T paramId)
+        public async Task<T> GetOneAsync<T>(string paramUrl, List<T> param, int paramId)
         {
             try
             {
@@ -84,5 +84,7 @@ namespace ApEnchere.Services
                 return default(T);
             }
         }
+
+        
     }
 }

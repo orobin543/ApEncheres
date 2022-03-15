@@ -4,16 +4,122 @@
              x:Class="ApEnchere.Vues.InscriptionVues">
     <ContentPage.Content>
         <StackLayout>
-            <BoxView>
-                <BoxView.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#9D3E0C" Offset="0"/>
-                        <GradientStop Color="Wheat" Offset="1"/>
-                    </LinearGradientBrush>
-                </BoxView.Background>
-            </BoxView>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <Grid>
+                    <BoxView>
+                        <BoxView.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#9D3E0C" Offset="0"/>
+                                <GradientStop Color="Wheat" Offset="1"/>
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
 
-                <Button Text="Accueil" Clicked="Accueil_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown"></Button>
+
+                    <Frame BackgroundColor="PeachPuff" CornerRadius="30" Margin="40, 20, 40, 0">
+                        <StackLayout HorizontalOptions="Center" Spacing="50">
+                            <!--Spacing espace entre 2 -->
+
+                            <Label Text="Inscription pour l'enchère" VerticalOptions="Center" TextColor="SaddleBrown" FontSize="Title"/>
+                            <Button Text="Ajout Photo"
+                                    Clicked="AjoutPhoto"/>
+                            <Image x:Name="image"/>
+
+                            <Entry
+                        x:Name="NomClass"
+                        Text="NOM"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="PrenomClass"
+                        Text="Prénom"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="AdresseClass"
+                        Text="Adresse"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="VilleClass"
+                        Text="Ville"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="CpClass"
+                        Text="Code Postal"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="NumTelClass"
+                        Text="Numéro de téléphone"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+
+                            <Entry
+                        x:Name="Password"
+                        Text="Password"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="Pseudo"
+                        Text="Pseudo"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="Email"
+                        Text="Email"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Entry
+                        x:Name="Photo"
+                        Text="Photo"
+                        BackgroundColor="PeachPuff"
+                        TextColor="SaddleBrown"
+                        WidthRequest="275"
+                        MaxLength="30"/>
+
+                            <Button
+                        x:Name="BtnInscription"
+                        Text="Inscription"
+                        BackgroundColor="SaddleBrown"
+                        TextColor="PeachPuff"
+                        Clicked="Accueil_Clicked"
+                         CornerRadius="35"
+                        />
+                        </StackLayout>
+
+                    </Frame>
+
+                </Grid>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
