@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ApEnchere.Modeles.Api
 {
-    class EnchereApi
+    public class EnchereApi
     {
         #region Attributs
 
@@ -15,7 +15,7 @@ namespace ApEnchere.Modeles.Api
             private float _prixreserve;
             private int _type_enchere_id;
 
-        private TypeEnchere _leType;
+        private TypeEnchere _leTypeEnchere;
         private Produit _leProduit;
         
 
@@ -32,7 +32,7 @@ namespace ApEnchere.Modeles.Api
                 _prixreserve = prixreserve;
                 _type_enchere_id = type_enchere_id;
             _leProduit = leProduit;
-            _leType = leType;
+            _leTypeEnchere = leType;
                 EnchereApi.CollClasse.Add(this);
 
             }
@@ -48,7 +48,7 @@ namespace ApEnchere.Modeles.Api
             public float Prixreserve { get => _prixreserve; set => _prixreserve = value; }
             public int Type_enchere_id { get => _type_enchere_id; set => _type_enchere_id = value; }
             public Produit LeProduit { get => _leProduit; set => _leProduit = value; }
-        public TypeEnchere LeType { get => _leType; set => _leType = value; }
+        public TypeEnchere LeTypeEnchere { get => _leTypeEnchere; set => _leTypeEnchere = value; }
             #endregion
 
             #region Methodes

@@ -1,4 +1,5 @@
 ﻿using ApEnchere.Modeles;
+using ApEnchere.Modeles.Api;
 using ApEnchere.VueModeles;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,17 @@ namespace ApEnchere.Vues
     public partial class Test : ContentPage
     {
         TestVueModeles vueModel;
-        public Test()
+        public Test(int param)
         {
             InitializeComponent();
-            BindingContext = vueModel = new TestVueModeles();
-        }
+            BindingContext = vueModel = new TestVueModeles(param);
 
+            //On ajoute une méthode pour l'obliger à le faire travailler en async
+            Task.Run(async () =>
+            {
+                EnchereApi uneEnchère = await vueModel.GetLaEnchere(param);
+            });
+
+        }
     }
 }

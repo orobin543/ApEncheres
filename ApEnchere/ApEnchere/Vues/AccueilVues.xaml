@@ -61,7 +61,7 @@
                                                 <Label Text="{Binding Id}" TextColor="Azure"/>
                                                 <Image Source="{Binding LeProduit.Photo}"/>
                                             </Grid>
-                                            
+
                                         </Frame>
                                     </Grid>
                                 </DataTemplate>
@@ -71,8 +71,26 @@
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Center" Margin="0,900,0,0" Spacing="30" Orientation="Vertical">
-                    <!--Spacing espace entre 2 -->
-                    <!-- <Button  x:Name="Classique"
+                    <CollectionView ItemsSource="{Binding MaListeEnchereEnCours}" VerticalOptions="Fill" SelectionMode="Single" SelectionChanged="Test_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowDefinitions="100,5">
+                                    <Frame BackgroundColor="Green" HasShadow="True"  CornerRadius="10">
+                                        <Grid>
+                                            <Label Text="{Binding Id}" TextColor="Azure"/>
+                                            <Image Source="{Binding LeProduit.Photo}"/>
+                                        </Grid>
+
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                        <!--Spacing espace entre 2 -->
+                        <!-- <Button  x:Name="Classique"
                         Text="Classique"
                         Clicked="Classique_Clicked"
                         BackgroundColor="PeachPuff"
@@ -100,7 +118,11 @@
                         HeightRequest="46"/>
 
                     <Button Text="Inscription" Clicked="Inscription_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="Center"></Button>
-                   --> <Button Text="Test" Clicked="Test_Clicked" BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="End" ></Button>
+                   
+                    </CollectionView>
+                    <Button Text="Test" Clicked="Test_Clicked"  BackgroundColor="PeachPuff" TextColor="SaddleBrown" CornerRadius="15" VerticalOptions="End" ></Button>
+               -->
+                    </CollectionView>
                 </StackLayout>
             </Grid>
         </ScrollView>

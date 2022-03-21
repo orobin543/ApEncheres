@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ApEnchere.Modeles
 {
-    class Produit
+    public class Produit
     {
         #region Attributs
 

@@ -2,13 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ApEnchere.Vues.Test">
-    <BoxView>
-        <BoxView.Background>
-            <LinearGradientBrush>
-                <GradientStop Color="#9D3E0C" Offset="0"/>
-                <GradientStop Color="Wheat" Offset="1"/>
-            </LinearGradientBrush>
-        </BoxView.Background>
-    </BoxView>
+    <Grid>
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#9D3E0C" Offset="0"/>
+                    <GradientStop Color="Wheat" Offset="1"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
+            <Label Text="Test" TextColor="Black" FontSize="Large" BackgroundColor="Aqua"/>
+
+            <Label Text="{Binding LaEnchere.Id}" />
+
+            <Label Text="Test" TextColor="Black" FontSize="Large" BackgroundColor="Aqua"/>
+        </StackLayout>
+        
+        
+
+    </Grid>
 </ContentPage>
         

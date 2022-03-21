@@ -4,9 +4,10 @@ using System.Text;
 
 namespace ApEnchere.Modeles
 {
-    class Encheres
+    public class Encheres
     {
         #region Attributs
+
         private int _id;
         private DateTime _dateDebut;
         private DateTime _dateFin;

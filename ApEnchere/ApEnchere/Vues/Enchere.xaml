@@ -15,51 +15,6 @@
                     </BoxView.Background>
                 </BoxView>
 
-                <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
-                    <CollectionView ItemsSource="{Binding MonEnchere}">
-                            <CollectionView.ItemsLayout>
-                                <GridItemsLayout Orientation="Vertical"/>
-                            </CollectionView.ItemsLayout>
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid RowDefinitions="100,5">
-                                        <Frame BackgroundColor="#842E1B" HasShadow="True"  CornerRadius="10">
-                                        <Grid>
-                                                <Image Source="{Binding LeProduit.Photo}"/>
-                                                
-                                                <Label Text="{Binding Nom}"/>
-                                                <Label Text="{Binding LeType}"/>
-                                            <Label Text="{Binding PrixReserve}" />
-
-                                            <CollectionView ItemsSource="{Binding LesEncherir}">
-                                                <CollectionView.ItemsLayout>
-                                                    <GridItemsLayout Orientation="Vertical"/>
-                                                </CollectionView.ItemsLayout>
-                                                <CollectionView.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Grid RowDefinitions="100,5">
-                                                            <Frame BackgroundColor="#842E1B" HasShadow="True"  CornerRadius="10">
-                                                                <Grid>
-                                                                    <Label Text="{Binding Pseudo}"/>
-                                                                    <Label Text="{Binding Prix}"/>
-                                                                </Grid>
-                                                            </Frame>
-                                                        </Grid>
-                                                    </DataTemplate>
-                                                </CollectionView.ItemTemplate>
-                                            </CollectionView>  
-                                            
-                                                    
-                                            </Grid>
-                                        </Frame>
-                                    </Grid>
-
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-
-
-                </StackLayout>
             </Grid>
         </ScrollView>
     </ContentPage.Content>

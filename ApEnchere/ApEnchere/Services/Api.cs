@@ -72,7 +72,7 @@ namespace ApEnchere.Services
                 var getResult = JObject.Parse(jsonString);
 
                 var clientHttp = new HttpClient();
-                var jsonContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
 
                 var response = await clientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
                 var json = await response.Content.ReadAsStringAsync();

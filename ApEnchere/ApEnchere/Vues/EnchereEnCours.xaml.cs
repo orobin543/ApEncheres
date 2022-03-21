@@ -1,4 +1,5 @@
-﻿using ApEnchere.VueModeles;
+﻿using ApEnchere.Modeles.Api;
+using ApEnchere.VueModeles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,13 @@ namespace ApEnchere.Vues
         {
             InitializeComponent();
             BindingContext = vueModeles = new EnchereEnCoursVueModeles(param);
+
+            //On ajoute une méthode pour l'obliger à le faire travailler en async
+            Task.Run(async () =>
+            {
+                EnchereApi uneEnchère = await vueModeles.GetLaEnchere(param);
+            });
+            
         }
 
     }

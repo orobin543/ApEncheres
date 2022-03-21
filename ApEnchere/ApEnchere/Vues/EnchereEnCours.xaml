@@ -3,10 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ApEnchere.Vues.EnchereEnCours">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand">
+
+            <Grid>
+                <BoxView>
+                    <BoxView.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#9D3E0C" Offset="0"/>
+                            <GradientStop Color="Wheat" Offset="1"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+                <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
+                    <Image Source="{Binding LaEnchere.LeProduit.Photo}"/>
+                    <Label Text="{Binding LaEnchere.LeTypeEnchere}"/>
+                    <Label Text="{Binding LaEnchere.PrixReserve}"/>
+                </StackLayout>
+            <!--    <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
+                    <Image Source="{Binding LeProduit.Photo}"/>
+
+                    <Label Text="{Binding LeProduit.Nom}" TextColor="Snow"/>
+                    <Label Text="{Binding LeTypeEnchere.Nom}" TextColor="Snow"/>
+                    <Label Text="{Binding PrixReserve}" TextColor="Snow" />
+                </StackLayout> 
+
+                <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
+                    
+                     <Label Text="{Binding LesEncherir.Pseudo}"/>
+                     <Label Text="{Binding LesEncherir.Prix}"/>
+                                                                
+                </StackLayout>-->
+            </Grid>
+        </ScrollView> 
     </ContentPage.Content>
 </ContentPage>

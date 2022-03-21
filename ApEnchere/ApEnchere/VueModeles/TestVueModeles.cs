@@ -1,9 +1,11 @@
-﻿using ApEnchere.Modeles.Api;
+﻿using ApEnchere.Modeles;
+using ApEnchere.Modeles.Api;
 using ApEnchere.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -12,54 +14,47 @@ namespace ApEnchere.VueModeles
     class TestVueModeles : BaseVueModeles
     {
         #region Attributs
-        ObservableCollection<EnchereApi> _maListeEncheres;
-        ObservableCollection<EnchereApi> _maListeEnchereEnCours;
+        EnchereApi _monEnchere;
+        ObservableCollection<Encherir> _lesEncherir;
 
         private readonly Api _apiServices = new Api();
-        //private int _resultat;
         #endregion
 
         #region Constructeur
-        public TestVueModeles()
+
+        public TestVueModeles(int param)
+
         {
-            GetListeEncheres();
-            GetListeEnchereEnCours();
+            //GetLaEnchere(param);
         }
         #endregion
 
-        #region Getters/Setters
-       // public ObservableCollection<EnchereApi> MaListeEncheres { get => _maListeEncheres; set => _maListeEncheres = value; }
+        #region Getter/Setter
 
-
-            public ObservableCollection<EnchereApi> MaListeEncheres
+        public EnchereApi LaEnchere
         {
-            get { return _maListeEncheres; }
+            get { return _monEnchere; }
 
 
-            set { SetProperty(ref _maListeEncheres, value); }
+            set { SetProperty(ref _monEnchere, value); }
         }
 
-        public ObservableCollection<EnchereApi> MaListeEnchereEnCours
+        public ObservableCollection<Encherir> LesEncherir
         {
-            get { return _maListeEnchereEnCours; }
+            get { return _lesEncherir; }
 
-            set { SetProperty(ref _maListeEnchereEnCours, value); }
+            set { SetProperty(ref _lesEncherir, value); }
         }
-
-        
         #endregion
 
         #region Méthodes
-        public async void GetListeEncheres()
-        {
-            MaListeEncheres = await _apiServices.GetAllAsync<EnchereApi>
-                   ("api/getEnchere", EnchereApi.CollClasse);
-        }
 
-        public async void GetListeEnchereEnCours()
+        //Va chercher les donner pour une enchère
+        public async Task<EnchereApi> GetLaEnchere(int param)
         {
-            MaListeEnchereEnCours = await _apiServices.GetAllAsync<EnchereApi>
-                   ("api/getEncheresEnCours", EnchereApi.CollClasse);
+            LaEnchere = await _apiServices.GetOneAsync<EnchereApi>
+                ("api/getEnchere", EnchereApi.CollClasse, param);
+            return LaEnchere;
         }
 
         /*public async void PostEnchere(Encheres uneEnchere)

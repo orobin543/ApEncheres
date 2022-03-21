@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ApEnchere.Modeles
 {
-    class Magasin
+    public class Magasin
     {
         #region Attributs
         private int _id;
