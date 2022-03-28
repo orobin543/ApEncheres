@@ -10,7 +10,7 @@ namespace ApEnchere.Modeles
         private int _id;
         private int _idEnchere;
         private int _idUser;
-        private int _prixEnchere;
+        private float _prixEnchere;
         private DateTime _dateEnchere;
         private Encheres _lEnchere;
         private User _leUser;
@@ -22,14 +22,14 @@ namespace ApEnchere.Modeles
         #endregion
 
         #region Constructeur
-        public Encherir(int id, int idEnchere, int idUser, int prixEnchere,string pseudo)
+        public Encherir(float prixenchere, int idUser, int idEnchere, int id, string pseudo)
         {
-            Id = id;
-            IdEnchere = idEnchere;
-            IdUser = idUser;
-            PrixEnchere = prixEnchere;
-            Pseudo = pseudo;
             Encherir.CollClasse.Add(this);
+            PrixEnchere = prixenchere;
+            IdUser = idUser;
+            IdEnchere = idEnchere;
+            Id = id;
+            Pseudo = pseudo;
         }
 
         #endregion
@@ -38,7 +38,7 @@ namespace ApEnchere.Modeles
         public int Id { get => _id; set => _id = value; }
         public int IdEnchere { get => _idEnchere; set => _idEnchere = value; }
         public int IdUser { get => _idUser; set => _idUser = value; }
-        public int PrixEnchere { get => _prixEnchere; set => _prixEnchere = value; }
+        public float PrixEnchere { get => _prixEnchere; set => _prixEnchere = value; }
         public DateTime DateEnchere { get => _dateEnchere; set => _dateEnchere = value; }
         public Encheres LEnchere { get => _lEnchere; set => _lEnchere = value; }
         public User LeUser { get => _leUser; set => _leUser = value; }

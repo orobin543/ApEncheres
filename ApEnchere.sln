@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApEnchere.Android", "ApEnchere\ApEnchere.Android\ApEnchere.Android.csproj", "{B27CDB42-F9E8-47D5-888A-DAE5F355D037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApEnchere", "ApEnchere\ApEnchere\ApEnchere.csproj", "{666173C1-61FD-46AD-85C7-45C27861434E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApEnchere", "ApEnchere\ApEnchere\ApEnchere.csproj", "{666173C1-61FD-46AD-85C7-45C27861434E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
