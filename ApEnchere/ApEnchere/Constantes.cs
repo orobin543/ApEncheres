@@ -9,6 +9,8 @@ namespace ApEnchere
     {
         public static string BaseApiAddress => "http://172.17.0.61:8000/";
 
+        public static string PublicBaseApiAddress => "http://80.13.113.244/2081/";
+
         public const string DatabaseFilename = "Enchere.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =

@@ -41,6 +41,36 @@ namespace ApEnchere.Services
             }
         }
 
+        public async Task<ObservableCollection<T>> GetAllAsyncID<T>(string paramUrl, List<T> param, string cle, int param2)
+        {
+
+            //on ajoute une clé car le Json fonctionne comme un dictionnaire : clé, valeur
+            //on met dans les paramètres tous ce qui est variable
+
+            try
+            {
+                string jsonString = @"{'" + cle + "':'" + param2 + "'}";
+                JObject getResult = JObject.Parse(jsonString);
+                //converti en objet Json
+                var clientHttp = new HttpClient();
+                //création du navigateur
+                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
+                //converti le json en string, représente toute la page internet, concidère que c du Json avec l'application
+                var response = await clientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
+                //envoie de la requete et attend une réponse du serveur
+                var json = await response.Content.ReadAsStringAsync();
+                //lecture de la réponse
+                JsonConvert.DeserializeObject<List<T>>(json);
+                //extrait le json en le transformant en objet
+                return GestionCollection.GetListes<T>(param);
+                //retourne la liste avec ses paramètres comme un objet
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         ///  <summary>
         ///  Cette methode est générique
         ///  Cette méthode permet de recuperer la liste de toutes les occurences de la table.
@@ -55,23 +85,23 @@ namespace ApEnchere.Services
         /// MaListeClients = await _apiServices.GetAllAsync<Client>("clients", Client.CollClasse);
         /// }
         ///  <returns>la liste des occurences</returns>
-       /* public async Task<ObservableCollection<T>> GetAllAsync<T>(string paramUrl, List<T> collectionReturn, Dictionary<string, object> parameters)
-        {
-            try
-            {
-                JObject getResult = JObject.Parse(GetJsonString(parameters));
-                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
-                var response = await ClientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
-                var json = await response.Content.ReadAsStringAsync();
-                JsonConvert.DeserializeObject<List<T>>(json);
-                return GestionCollection.GetListes<T>(collectionReturn);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }*/
-       
+        /* public async Task<ObservableCollection<T>> GetAllAsync<T>(string paramUrl, List<T> collectionReturn, Dictionary<string, object> parameters)
+         {
+             try
+             {
+                 JObject getResult = JObject.Parse(GetJsonString(parameters));
+                 var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
+                 var response = await ClientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
+                 var json = await response.Content.ReadAsStringAsync();
+                 JsonConvert.DeserializeObject<List<T>>(json);
+                 return GestionCollection.GetListes<T>(collectionReturn);
+             }
+             catch (Exception)
+             {
+                 return null;
+             }
+         }*/
+
         /*Lorsqu'on lui envoie un objet, il le convertit en json. Il encode le json pour en faire une page
          * Il l'envoie au serveur qui a lui donné une réponse. On récupère dans le Content le résultat du
          * serveur.

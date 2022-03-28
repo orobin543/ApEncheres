@@ -9,8 +9,8 @@
                     <BoxView>
                         <BoxView.Background>
                             <LinearGradientBrush>
-                                <GradientStop Color="#9D3E0C" Offset="0"/>
-                                <GradientStop Color="Wheat" Offset="1"/>
+                                <GradientStop Color="#581845" Offset="0"/>
+                                <GradientStop Color="#FF5733" Offset="1"/>
                             </LinearGradientBrush>
                         </BoxView.Background>
                     </BoxView>

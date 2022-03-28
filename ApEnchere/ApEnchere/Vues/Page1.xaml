@@ -8,25 +8,26 @@
                     <BoxView>
                         <BoxView.Background>
                             <LinearGradientBrush>
-                                <GradientStop Color="#9D3E0C" Offset="0"/>
-                                <GradientStop Color="Wheat" Offset="1"/>
-                            </LinearGradientBrush>
+                            <GradientStop Color="#581845" Offset="0"/>
+                            <GradientStop Color="#FF5733" Offset="1"/>
+                        </LinearGradientBrush>
                         </BoxView.Background>
                     </BoxView>
 
 
-                    <Frame BackgroundColor="PeachPuff" CornerRadius="30" Margin="40, 20, 40, 0">
-                        <StackLayout HorizontalOptions="Center" Spacing="50">
+                <Frame BackgroundColor="#FFC300" CornerRadius="30" Margin="40, 100, 40, 170">
+                
+                <StackLayout HorizontalOptions="Center" Spacing="50">
                             <!--Spacing espace entre 2 -->
 
-                            <Label Text="Inscription pour l'enchère" VerticalOptions="Center" TextColor="SaddleBrown" FontSize="Title"/>
+                        <Label Text="Inscription pour l'enchère" HorizontalOptions="CenterAndExpand" TextColor="#881E40" FontSize="Title" FontAttributes="Bold"/>
                             <Image x:Name="image"/>
 
                         <Button 
                             x:Name="Connexion"
                             Text="Connexion"
-                            BackgroundColor="PeachPuff"
-                            TextColor="SaddleBrown"
+                            BackgroundColor="LightYellow"
+                            TextColor="#FF5733"
                             WidthRequest="275"
                             CornerRadius="30"
                             Clicked="Connexion_Clicked"/>
@@ -34,8 +35,8 @@
                         <Button 
                             x:Name="Inscription"
                             Text="Inscription"
-                            BackgroundColor="PeachPuff"
-                            TextColor="SaddleBrown"
+                            BackgroundColor="LightYellow"
+                            TextColor="#FF5733"
                             WidthRequest="275"
                             CornerRadius="30"
                             Clicked="Inscription_Clicked"/>
@@ -43,8 +44,8 @@
                         <Button 
                             x:Name="SansConnexion"
                             Text="Connexion sans identifiant"
-                            BackgroundColor="PeachPuff"
-                            TextColor="SaddleBrown"
+                            BackgroundColor="LightYellow"
+                            TextColor="#FF5733"
                             WidthRequest="275"
                             CornerRadius="30"
                             Clicked="SansConnexion_Clicked"/>

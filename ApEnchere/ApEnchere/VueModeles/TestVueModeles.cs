@@ -22,7 +22,7 @@ namespace ApEnchere.VueModeles
 
         #region Constructeur
 
-        public TestVueModeles(int param)
+        public TestVueModeles()
 
         {
             //GetLaEnchere(param);

@@ -5,9 +5,16 @@
     <Grid>
         <BoxView>
             <BoxView.Background>
+               <!-- <LinearGradientBrush>
+                    <GradientStop Color="#fad2e1" Offset="0"/>
+                    <GradientStop Color="#fde2e4" Offset="1"/>
+                    <GradientStop Color ="#fff1e6" Offset="2"/>
+                    <GradientStop Color="#eddcd2" Offset="3"/>
+                </LinearGradientBrush>-->
+
                 <LinearGradientBrush>
-                    <GradientStop Color="#9D3E0C" Offset="0"/>
-                    <GradientStop Color="Wheat" Offset="1"/>
+                    <GradientStop Color="#581845" Offset="0"/>
+                    <GradientStop Color="#FF5733" Offset="1"/>
                 </LinearGradientBrush>
             </BoxView.Background>
         </BoxView>
@@ -15,7 +22,7 @@
         <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
             <Label Text="Test" TextColor="Black" FontSize="Large" BackgroundColor="Aqua"/>
 
-            <Label Text="{Binding LaEnchere.Id}" />
+          
 
             <Label Text="Test" TextColor="Black" FontSize="Large" BackgroundColor="Aqua"/>
         </StackLayout>

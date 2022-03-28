@@ -21,14 +21,6 @@ namespace ApEnchere.Vues
             BindingContext = vueModel = new AccueilVueModeles();
         }
 
-        //aller à la page test
-        void Test_SelectionChanged(object senser, SelectionChangedEventArgs e)
-        {
-            var current = (EnchereApi)e.CurrentSelection.FirstOrDefault(); //récupère l'objet ici l'id de l'enchère
-
-            Navigation.PushAsync(new Test(current.Id));
-        }
-
         //aller sur la page EnchereEnCours en récupérant les données de l'enchère à partir de son id
         private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -45,9 +37,9 @@ namespace ApEnchere.Vues
             Navigation.PushAsync(new Enchere(current.Id));
         }
 
-        void Test_Clicked(object sender, SelectedItemChangedEventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-           
+            Navigation.PushAsync(new Test());
         }
     }
 }

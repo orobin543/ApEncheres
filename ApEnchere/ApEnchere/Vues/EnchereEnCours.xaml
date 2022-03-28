@@ -3,41 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ApEnchere.Vues.EnchereEnCours">
     <ContentPage.Content>
-        <ScrollView VerticalOptions="FillAndExpand">
+        <ScrollView VerticalOptions="Fill">
         <Grid>
             <BoxView HorizontalOptions="FillAndExpand">
                 <BoxView.Background>
                     <LinearGradientBrush>
-                        <GradientStop Color="#9D3E0C" Offset="0"/>
-                        <GradientStop Color="Wheat" Offset="1"/>
-                    </LinearGradientBrush>
+
+                            <GradientStop Color="#581845" Offset="0"/>
+                            <GradientStop Color="#FF5733" Offset="1"/>
+                        </LinearGradientBrush>
                 </BoxView.Background>
             </BoxView>
 
             <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
-                <!-- <Grid>
-                    <Frame BackgroundColor="Transparent" HasShadow="True"  CornerRadius="10"> -->
-                <Label Text="{Binding LaEnchere.LeTypeEnchere}"/>
+                
+                    <Label Text="{Binding LaEnchere.LeTypeEnchere}" TextColor="White" FontFamily="Lobster" FontAttributes="Italic"/>
                 <Image Source="{Binding LaEnchere.LeProduit.Photo}"/>
 
-                <Label Text="{Binding LaEnchere.LeProduit.PrixReel}"/>
-                <Label Text="{Binding LaEnchere.PrixReserve}" TextColor="Black"/>
-                <!-- </Frame>
-                    </Grid>-->
+                    <Label Text="{Binding LaEnchere.LeProduit.PrixReel}" TextColor="White"/>
+                <Label Text="{Binding LaEnchere.PrixReserve}" TextColor="White"/>
+                
             </StackLayout>
 
-
-            <!--<StackLayout HorizontalOptions="Center" Margin="0,500,0,0" BackgroundColor="Black">
-                    <ScrollView VerticalOptions="Fill">
-                    <Label TextColor="Aquamarine" Text="Test"/>
-                    <Label Text="{Binding LesEncheri.LeUser.Pseudo}"/>
-                        
-                     <Label Text="{Binding LesEncheri.PrixEnchere}"/>
-                        
-                    </ScrollView>                                            
-                </StackLayout>
-
-                <Button Text="Enchérir" Clicked="Button_Clicked"/>-->
 
             <StackLayout HorizontalOptions="Center" Margin="20,500,20,0">
                 <ScrollView HeightRequest="200">
@@ -48,10 +35,10 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid RowDefinitions="100,5">
-                                    <Frame BackgroundColor="#B67823" HasShadow="True"  CornerRadius="10">
-                                        <Grid>
-                                            <Label Text="{Binding Pseudo}" TextColor="Azure"/>
-                                            <Label Text="{Binding PrixEnchere}"/>
+                                        <Frame BackgroundColor="#FF3C38" HasShadow="True"  CornerRadius="10">
+                                            <Grid>
+                                            <Label Text="{Binding Pseudo}" TextColor="Azure" VerticalOptions="End"/>
+                                            <Label Text="{Binding PrixEnchere}" TextColor="Azure" VerticalOptions="Start"/>
                                         </Grid>
 
                                     </Frame>
@@ -62,39 +49,18 @@
                 </ScrollView>
             </StackLayout>
 
-                <!--<StackLayout HorizontalOptions="Center" Margin="20,900,20,0" Spacing="50">
-                    <Grid>
-                        <Frame BackgroundColor="Black" CornerRadius="20">
-                            <Label Text="Insérer le prix que vous souhaitez pour pouvoir enchérir" TextColor="Snow"/>
-                            
-                            <Entry x:Name="PrixUserEncheri"
-                            Placeholder="Prix pour enchérir"
-                            TextColor="Blue"
-                            WidthRequest="275"
-                            MaxLength="10"
-                            ClearButtonVisibility="WhileEditing"/>
-                            
-                            <Button x:Name="AjoutUserEncheri" Clicked="AjoutUserEncheri_Clicked"/>
+                <StackLayout HorizontalOptions="Center" Margin="20,800,20,0">
+
+                    <Grid RowDefinitions="100,5">
+                        <Frame BackgroundColor="LightYellow" HasShadow="True"  CornerRadius="10">
+                            <Grid>
+                                <Entry HorizontalOptions="StartAndExpand" x:Name="NumEntry" Placeholder="Prix à encherir" MaxLength="10" ClearButtonVisibility="WhileEditing"/>
+
+                                <Button HorizontalOptions="EndAndExpand" Text="Valider" BackgroundColor="#FF5733" TextColor="#581845" VerticalOptions="Center" CornerRadius="23" Clicked="AjoutUserEncheri_Clicked"/>
+                            </Grid>
+
                         </Frame>
                     </Grid>
-                </StackLayout>-->
-
-                <StackLayout HorizontalOptions="Center" Margin="0,800,0,0" Spacing="60" Orientation="Horizontal">
-                   <!-- Spacing espace entre 2 -->
-                    <Frame CornerRadius="40">
-                        <Entry x:Name="NumEntry"
-                            Placeholder="N° Téléphone"
-                                WidthRequest="275"
-                            MaxLength="10"
-                            ClearButtonVisibility="WhileEditing"/>
-                        <Button Text="Valider" 
-                        BackgroundColor="Blue"
-                        TextColor="White"
-                        VerticalOptions="Center"
-                        CornerRadius="23"
-                                 WidthRequest="150"
-                        Clicked="AjoutUserEncheri_Clicked"/>
-                    </Frame>
                 </StackLayout>
             </Grid>
     </ScrollView>

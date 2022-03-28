@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ApEnchere.VueModeles
@@ -23,8 +24,8 @@ namespace ApEnchere.VueModeles
         public EnchereEnCoursVueModeles(int param)
 
         {
-            //GetLaEnchere(param);
-            GetLesEncheri();
+            GetLaEnchere(param);
+            GetLesEncheri(param);
         }
         #endregion
 
@@ -65,11 +66,22 @@ namespace ApEnchere.VueModeles
                  ("api/getLastSixOffer", Encherir.CollClasse,param);
          }*/
 
-        public async void GetLesEncheri()
+        public  void GetLesEncheri(int param)
         {
-           
-            LesEncheri = await _apiServices.GetAllAsync<Encherir>
-                ("api/getLastSixOffer", Encherir.CollClasse);
+
+            //petit programme indépendant du programme principal (qui peut intéragir avec)
+            //On ajoute une méthode pour l'obliger à le faire travailler en async
+            Task.Run(async () =>
+
+            { 
+               
+                while (true)
+                {
+                   
+                    LesEncheri = await _apiServices.GetAllAsyncID<Encherir> ("api/getLastSixOffer", Encherir.CollClasse, "Id", param);
+                    Thread.Sleep(2000);
+                }
+            });
         }
 
 
