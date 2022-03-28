@@ -24,6 +24,7 @@ namespace ApEnchere.VueModeles
 
         {
             //GetLaEnchere(param);
+            GetLesEncheri();
         }
         #endregion
 
@@ -37,7 +38,7 @@ namespace ApEnchere.VueModeles
             set { SetProperty(ref _monEnchere, value); }
         }
 
-        public ObservableCollection<Encherir> LesEncherir
+        public ObservableCollection<Encherir> LesEncheri
         {
             get { return _lesEncherir; }
 
@@ -56,11 +57,21 @@ namespace ApEnchere.VueModeles
         }
 
         //Permet à un utilisateur d'encherir
-        public async void GetEncherir()
+        /* public async void GetLesEncheri()
+         {
+             Dictionary<string, object> param = new Dictionary<string, object>();
+             param.Add("Id",13);
+             LesEncheri = await _apiServices.GetAllAsync<Encherir>
+                 ("api/getLastSixOffer", Encherir.CollClasse,param);
+         }*/
+
+        public async void GetLesEncheri()
         {
-            LesEncherir = await _apiServices.GetAllAsync<Encherir>
-                ("api/", Encherir.CollClasse);
+           
+            LesEncheri = await _apiServices.GetAllAsync<Encherir>
+                ("api/getLastSixOffer", Encherir.CollClasse);
         }
+
 
         #endregion
     }

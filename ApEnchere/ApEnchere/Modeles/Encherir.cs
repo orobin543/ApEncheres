@@ -14,6 +14,7 @@ namespace ApEnchere.Modeles
         private DateTime _dateEnchere;
         private Encheres _lEnchere;
         private User _leUser;
+        private string _pseudo;
 
         
         public static List<Encherir> CollClasse = new List<Encherir>();
@@ -21,12 +22,13 @@ namespace ApEnchere.Modeles
         #endregion
 
         #region Constructeur
-        public Encherir(int id, int idEnchere, int idUser, int prixEnchere)
+        public Encherir(int id, int idEnchere, int idUser, int prixEnchere,string pseudo)
         {
             Id = id;
             IdEnchere = idEnchere;
             IdUser = idUser;
             PrixEnchere = prixEnchere;
+            Pseudo = pseudo;
             Encherir.CollClasse.Add(this);
         }
 
@@ -40,6 +42,8 @@ namespace ApEnchere.Modeles
         public DateTime DateEnchere { get => _dateEnchere; set => _dateEnchere = value; }
         public Encheres LEnchere { get => _lEnchere; set => _lEnchere = value; }
         public User LeUser { get => _leUser; set => _leUser = value; }
+
+        public string Pseudo { get => _pseudo; set => _pseudo = value; } 
 
         #endregion
 

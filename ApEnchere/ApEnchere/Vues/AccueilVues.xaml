@@ -7,7 +7,7 @@
 
             <Grid>
                 <BoxView>
-                    <BoxView.Background>
+                    <BoxView.Background VerticalOptions="FillAndExpand">
                         <LinearGradientBrush>
                             <GradientStop Color="#9D3E0C" Offset="0"/>
                             <GradientStop Color="Wheat" Offset="1"/>

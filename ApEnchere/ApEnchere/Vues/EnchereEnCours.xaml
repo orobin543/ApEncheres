@@ -4,36 +4,99 @@
              x:Class="ApEnchere.Vues.EnchereEnCours">
     <ContentPage.Content>
         <ScrollView VerticalOptions="FillAndExpand">
+        <Grid>
+            <BoxView HorizontalOptions="FillAndExpand">
+                <BoxView.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#9D3E0C" Offset="0"/>
+                        <GradientStop Color="Wheat" Offset="1"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
 
-            <Grid>
-                <BoxView>
-                    <BoxView.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#9D3E0C" Offset="0"/>
-                            <GradientStop Color="Wheat" Offset="1"/>
-                        </LinearGradientBrush>
-                    </BoxView.Background>
-                </BoxView>
-                <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
-                    <Image Source="{Binding LaEnchere.LeProduit.Photo}"/>
-                    <Label Text="{Binding LaEnchere.LeTypeEnchere}"/>
-                    <Label Text="{Binding LaEnchere.PrixReserve}"/>
+            <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
+                <!-- <Grid>
+                    <Frame BackgroundColor="Transparent" HasShadow="True"  CornerRadius="10"> -->
+                <Label Text="{Binding LaEnchere.LeTypeEnchere}"/>
+                <Image Source="{Binding LaEnchere.LeProduit.Photo}"/>
+
+                <Label Text="{Binding LaEnchere.LeProduit.PrixReel}"/>
+                <Label Text="{Binding LaEnchere.PrixReserve}" TextColor="Black"/>
+                <!-- </Frame>
+                    </Grid>-->
+            </StackLayout>
+
+
+            <!--<StackLayout HorizontalOptions="Center" Margin="0,500,0,0" BackgroundColor="Black">
+                    <ScrollView VerticalOptions="Fill">
+                    <Label TextColor="Aquamarine" Text="Test"/>
+                    <Label Text="{Binding LesEncheri.LeUser.Pseudo}"/>
+                        
+                     <Label Text="{Binding LesEncheri.PrixEnchere}"/>
+                        
+                    </ScrollView>                                            
                 </StackLayout>
-            <!--    <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
-                    <Image Source="{Binding LeProduit.Photo}"/>
 
-                    <Label Text="{Binding LeProduit.Nom}" TextColor="Snow"/>
-                    <Label Text="{Binding LeTypeEnchere.Nom}" TextColor="Snow"/>
-                    <Label Text="{Binding PrixReserve}" TextColor="Snow" />
-                </StackLayout> 
+                <Button Text="Enchérir" Clicked="Button_Clicked"/>-->
 
-                <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
-                    
-                     <Label Text="{Binding LesEncherir.Pseudo}"/>
-                     <Label Text="{Binding LesEncherir.Prix}"/>
-                                                                
+            <StackLayout HorizontalOptions="Center" Margin="20,500,20,0">
+                <ScrollView HeightRequest="200">
+                    <CollectionView ItemsSource="{Binding LesEncheri}" VerticalOptions="Center">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowDefinitions="100,5">
+                                    <Frame BackgroundColor="#B67823" HasShadow="True"  CornerRadius="10">
+                                        <Grid>
+                                            <Label Text="{Binding Pseudo}" TextColor="Azure"/>
+                                            <Label Text="{Binding PrixEnchere}"/>
+                                        </Grid>
+
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </StackLayout>
+
+                <!--<StackLayout HorizontalOptions="Center" Margin="20,900,20,0" Spacing="50">
+                    <Grid>
+                        <Frame BackgroundColor="Black" CornerRadius="20">
+                            <Label Text="Insérer le prix que vous souhaitez pour pouvoir enchérir" TextColor="Snow"/>
+                            
+                            <Entry x:Name="PrixUserEncheri"
+                            Placeholder="Prix pour enchérir"
+                            TextColor="Blue"
+                            WidthRequest="275"
+                            MaxLength="10"
+                            ClearButtonVisibility="WhileEditing"/>
+                            
+                            <Button x:Name="AjoutUserEncheri" Clicked="AjoutUserEncheri_Clicked"/>
+                        </Frame>
+                    </Grid>
                 </StackLayout>-->
+
+                <StackLayout HorizontalOptions="Center" Margin="0,800,0,0" Spacing="60" Orientation="Horizontal">
+                   <!-- Spacing espace entre 2 -->
+                    <Frame CornerRadius="40">
+                        <Entry x:Name="NumEntry"
+                            Placeholder="N° Téléphone"
+                                WidthRequest="275"
+                            MaxLength="10"
+                            ClearButtonVisibility="WhileEditing"/>
+                        <Button Text="Valider" 
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        CornerRadius="23"
+                                 WidthRequest="150"
+                        Clicked="AjoutUserEncheri_Clicked"/>
+                    </Frame>
+                </StackLayout>
             </Grid>
-        </ScrollView> 
+    </ScrollView>
     </ContentPage.Content>
 </ContentPage>

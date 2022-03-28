@@ -15,6 +15,13 @@
                     </BoxView.Background>
                 </BoxView>
 
+                <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
+                    <Image Source="{Binding LaEnchere.LeProduit.Photo}"/>
+                    <Label Text="{Binding LaEnchere.LeTypeEnchere}"/>
+                    <Label Text="{Binding LaEnchere.PrixReserve}"/>
+                    <Label Text="{Binding LaEnchere.DateDebut}"/>
+                </StackLayout>
+
             </Grid>
         </ScrollView>
     </ContentPage.Content>

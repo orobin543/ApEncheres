@@ -28,5 +28,14 @@ namespace ApEnchere.Vues
             
         }
 
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AjoutUserEncheri_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
