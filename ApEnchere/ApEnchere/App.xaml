@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ApEnchere.App">
     <Application.Resources>
-
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="#581845"/>
+            <Setter Property="BarTextColor" Value="LightYellow" />
+        </Style>
     </Application.Resources>
 </Application>
