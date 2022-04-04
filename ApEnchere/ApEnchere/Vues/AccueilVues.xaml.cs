@@ -19,6 +19,7 @@ namespace ApEnchere.Vues
         {
             InitializeComponent();
             BindingContext = vueModel = new AccueilVueModeles();
+            
         }
 
         //aller sur la page EnchereEnCours en récupérant les données de l'enchère à partir de son id
@@ -26,7 +27,7 @@ namespace ApEnchere.Vues
         {
             var current = (EnchereApi) e.CurrentSelection.FirstOrDefault(); //récupère l'objet ici l'id de l'enchère
 
-            Navigation.PushAsync(new EnchereEnCours(current.Id));
+            Navigation.PushAsync(new EnchereEnCours(current.Id), true);
         }
 
         //aller sur la page Enchere en récupérant les données de l'enchère à partir de son id
@@ -34,12 +35,12 @@ namespace ApEnchere.Vues
         {
             var current = (EnchereApi)e.CurrentSelection.FirstOrDefault(); //récupère l'objet ici l'id de l'enchère
 
-            Navigation.PushAsync(new Enchere(current.Id));
+            Navigation.PushAsync(new Enchere(current.Id), true);
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Test());
+            Navigation.PushAsync(new Test(), true);
         }
     }
 }

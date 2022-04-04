@@ -17,9 +17,9 @@
 
                 <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
                     <Image Source="{Binding LaEnchere.LeProduit.Photo}"/>
-                    <Label Text="{Binding LaEnchere.LeTypeEnchere}"/>
-                    <Label Text="{Binding LaEnchere.PrixReserve}"/>
-                    <Label Text="{Binding LaEnchere.DateDebut}"/>
+                    <Label Text="{Binding LaEnchere.LeTypeEnchere}" TextColor="#DAF7A6"/>
+                    <Label Text="{Binding LaEnchere.PrixReserve}" TextColor="#DAF7A6"/>
+                    <Label Text="{Binding LaEnchere.DateDebut}" TextColor="#DAF7A6"/>
                 </StackLayout>
 
             </Grid>

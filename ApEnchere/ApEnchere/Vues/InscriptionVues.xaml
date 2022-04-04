@@ -28,8 +28,8 @@
                             <Entry
                         x:Name="NomClass"
                         Text="NOM"
-                        BackgroundColor="PeachPuff"
-                        TextColor="SaddleBrown"
+                        BackgroundColor="Orange"
+                        TextColor="#DAF7A6"
                         WidthRequest="275"
                         MaxLength="30"/>
 

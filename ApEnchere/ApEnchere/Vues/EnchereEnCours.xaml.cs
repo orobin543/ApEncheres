@@ -20,23 +20,6 @@ namespace ApEnchere.Vues
             InitializeComponent();
             BindingContext = vueModeles = new EnchereEnCoursVueModeles(param);
 
-            //On ajoute une méthode pour l'obliger à le faire travailler en async
-           
-           /*Task.Run(async () =>
-            {
-                EnchereApi uneEnchère = await vueModeles.GetLaEnchere(param);
-            });
-         */   
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AjoutUserEncheri_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

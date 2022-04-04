@@ -14,6 +14,7 @@ namespace ApEnchere
             MainPage = new NavigationPage(new Page1());
         }
 
+        
         protected override void OnStart()
         {
         }

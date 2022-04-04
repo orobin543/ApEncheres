@@ -16,17 +16,17 @@ namespace ApEnchere.Vues
     public partial class Test : ContentPage
     {
         TestVueModeles vueModel;
+        public Xamarin.Forms.Color BarBackgroundColor { get; set; }
         public Test()
         {
             InitializeComponent();
             BindingContext = vueModel = new TestVueModeles();
 
-          /*  //On ajoute une méthode pour l'obliger à le faire travailler en async
-            Task.Run(async () =>
-            {
-                EnchereApi uneEnchère = await vueModel.GetLaEnchere(param);
-            });*/
-
+            /*  //On ajoute une méthode pour l'obliger à le faire travailler en async
+              Task.Run(async () =>
+              {
+                  EnchereApi uneEnchère = await vueModel.GetLaEnchere(param);
+              });*/
         }
     }
 }

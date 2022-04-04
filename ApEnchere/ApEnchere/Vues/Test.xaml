@@ -1,16 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ApEnchere.Vues.Test">
-    <Grid>
+             ControlTemplate="{StaticResource MainPageTemplate}"
+             x:Class="ApEnchere.Vues.Test"
+               >
+    <NavigationPage.TitleView>
+     <!--   <Label           FontSize="25"
+                     TextColor="Black"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand"
+                     HorizontalTextAlignment="Center"
+                     FontFamily="PatrickFont">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Number"/>
+                    <Span Text="Generator" TextColor="Red"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>-->
+        <Label BackgroundColor="Pink"/>
+    </NavigationPage.TitleView>
+
+
+    <!--  <Grid>
         <BoxView>
             <BoxView.Background>
-               <!-- <LinearGradientBrush>
+              <LinearGradientBrush>
                     <GradientStop Color="#fad2e1" Offset="0"/>
                     <GradientStop Color="#fde2e4" Offset="1"/>
                     <GradientStop Color ="#fff1e6" Offset="2"/>
                     <GradientStop Color="#eddcd2" Offset="3"/>
-                </LinearGradientBrush>-->
+                </LinearGradientBrush>
 
                 <LinearGradientBrush>
                     <GradientStop Color="#581845" Offset="0"/>
@@ -29,6 +49,7 @@
         
         
 
-    </Grid>
+    </Grid>-->
+    
 </ContentPage>
         

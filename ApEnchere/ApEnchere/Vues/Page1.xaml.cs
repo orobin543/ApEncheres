@@ -20,17 +20,17 @@ namespace ApEnchere.Vues
         private void Connexion_Clicked(object sender, EventArgs e)
         {
             // Navigation.PushAsync(new Connexion());
-            Navigation.PushAsync(new AccueilVues());
+            Navigation.PushAsync(new AccueilVues(), true);
         }
 
         private void Inscription_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new InscriptionVues());
+            Navigation.PushAsync(new InscriptionVues(), true);
         }
 
         private void SansConnexion_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AccueilVues());
+            Navigation.PushAsync(new AccueilVues(), true);
         }
     }
 }

@@ -19,7 +19,7 @@
 
 
                 <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
-                    <Label Text="Enchère à venir" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Title" FontFamily="Lobster" FontAttributes="Bold"/>
+                    <Label Text="Enchère à venir" TextColor="LightYellow" HorizontalOptions="CenterAndExpand" FontSize="Title" FontFamily="Lobster" FontAttributes="Bold"/>
                     <ScrollView HeightRequest="200">
                         
                         <CollectionView ItemsSource="{Binding MaListeEncheres}" VerticalOptions="Fill" SelectionMode="Single" SelectionChanged="SelectionChanged_Enchere">
@@ -33,9 +33,9 @@
                                         <Frame BackgroundColor="#900C3F" HasShadow="True"  CornerRadius="10">
                                             
                                             <Grid>
-                                                <Label Text="{Binding Id}" TextColor="Azure"/>
+                                                <Label Text="{Binding Id}" TextColor="LightYellow"/>
 
-                                                <Label Text="{Binding LeType}" TextColor="Snow"/>
+                                                <Label Text="{Binding LeType}" TextColor="LightYellow"/>
                                                 <Image Source="{Binding LeProduit.Photo}"/>
                                             </Grid>
                                         </Frame>
@@ -51,7 +51,7 @@
 
 
                 <StackLayout HorizontalOptions="Center" Margin="20,450,20,0">
-                    <Label Text="Enchère en cours" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Title" FontFamily="Lobster" FontAttributes="Bold"/>
+                    <Label Text="Enchère en cours" TextColor="LightYellow" HorizontalOptions="CenterAndExpand" FontSize="Title" FontFamily="Lobster" FontAttributes="Bold"/>
                     <ScrollView HeightRequest="200">
                         <CollectionView ItemsSource="{Binding MaListeEnchereEnCours}" VerticalOptions="Fill" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
                             <CollectionView.ItemsLayout>
@@ -63,9 +63,9 @@
                                         <Frame BackgroundColor="#A0353D" HasShadow="True"  CornerRadius="10">
                                             
                                             <Grid>
-                                               
 
-                                                <Label Text="{Binding Id}" TextColor="Azure"/>
+
+                                                <Label Text="{Binding Id}" TextColor="LightYellow"/>
                                                 <Image Source="{Binding LeProduit.Photo}"/>
 
                                             </Grid>

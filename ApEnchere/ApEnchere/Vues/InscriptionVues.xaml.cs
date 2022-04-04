@@ -44,7 +44,7 @@ namespace ApEnchere.Vues
             User unUser = new User(Email.Text, Password.Text, Pseudo.Text, Photo.Text);
             vueModeles.PostUser(unUser);
 
-            Navigation.PushAsync(new AccueilVues());
+            Navigation.PushAsync(new AccueilVues(), true);
         }
     }
 }

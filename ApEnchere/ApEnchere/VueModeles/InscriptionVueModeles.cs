@@ -20,7 +20,7 @@ namespace ApEnchere.VueModeles
 
         public InscriptionVueModeles()
         {
-            PostUser(new User("test", "test", "test", "test"));
+            PostUser(new User("testgg", "tggjhhest", "tehgjhhghjst", "thjjjhest"));
         }
 
         #endregion
@@ -32,11 +32,9 @@ namespace ApEnchere.VueModeles
         #region Methodes
         public async void PostUser(User unUser)
         {
-
-           // int resultat = await _apiServices.PostAsync<User>(unUser, "api/postUser");
             unUser.Id= await _apiServices.PostAsync<User>(unUser, "api/postUser");
             this.StockerId(unUser);
-            
+            this.StockerPseudo(unUser);
         }
         public async void StockerId(User unUser)
             {
@@ -49,6 +47,32 @@ namespace ApEnchere.VueModeles
                     // Possible that device doesn't support secure storage on device.
                 }
             }
+
+        public async void StockerPseudo(User unUser)
+        {
+            try
+            {
+                await SecureStorage.SetAsync("pseudo", unUser.Pseudo);
+
+            }
+
+            catch (Exception ex)
+            {
+                //Possible that device doesn't support secure storage on device.
+            }
+        }
+
+        public async void StockerPhoto(User unUser)
+        {
+            try
+            {
+                await SecureStorage.SetAsync("photo", unUser.Photo);
+            }
+            catch (Exception ex)
+            {
+                //Possible that device doesn't support secure storage on device.
+            }
+        }
         #endregion
 
     }

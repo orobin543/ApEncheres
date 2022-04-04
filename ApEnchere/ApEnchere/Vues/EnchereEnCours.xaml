@@ -16,37 +16,40 @@
             </BoxView>
 
             <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
-                
-                    <Label Text="{Binding LaEnchere.LeTypeEnchere}" TextColor="White" FontFamily="Lobster" FontAttributes="Italic"/>
+
+                    <Label Text="{Binding LaEnchere.LeTypeEnchere}" TextColor="LightYellow" FontFamily="Lobster" FontAttributes="Italic"/>
                 <Image Source="{Binding LaEnchere.LeProduit.Photo}"/>
 
-                    <Label Text="{Binding LaEnchere.LeProduit.PrixReel}" TextColor="White"/>
-                <Label Text="{Binding LaEnchere.PrixReserve}" TextColor="White"/>
+                    <Label Text="{Binding LaEnchere.LeProduit.PrixReel}" TextColor="LightYellow"/>
+                    <Label Text="{Binding LaEnchere.PrixReserve}" TextColor="LightYellow"/>
                 
             </StackLayout>
 
 
             <StackLayout HorizontalOptions="Center" Margin="20,500,20,0">
                 <ScrollView HeightRequest="200">
-                    <CollectionView ItemsSource="{Binding LesEncheri}" VerticalOptions="Center">
-                        <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical" Span="1" />
-                        </CollectionView.ItemsLayout>
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid RowDefinitions="100,5">
-                                        <Frame BackgroundColor="#FF3C38" HasShadow="True"  CornerRadius="10">
-                                            <Grid>
-                                            <Label Text="{Binding Pseudo}" TextColor="Azure" VerticalOptions="End"/>
-                                            <Label Text="{Binding PrixEnchere}" TextColor="Azure" VerticalOptions="Start"/>
-                                        </Grid>
+                        <Frame BackgroundColor="#FF3C38" HasShadow="True"  CornerRadius="10">
+                            <CollectionView ItemsSource="{Binding LesEncheri}" VerticalOptions="Center">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Vertical" Span="1" />
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid RowDefinitions="100,10">
+                                            <Frame BackgroundColor="#FFC300" HasShadow="True"  CornerRadius="10">
+                                                <Grid>
+                                                    <Label Text="{Binding Pseudo}" TextColor="#581845" HorizontalOptions="Center"/>
+                                                    <Label Text="{Binding PrixEnchere}" TextColor="#581845" HorizontalOptions="Start"/>
+                                                    <Image Source="{Binding Photo}" HorizontalOptions="End"/>
+                                                </Grid>
 
-                                    </Frame>
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </ScrollView>
+                                            </Frame>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Frame>
+                    </ScrollView>
             </StackLayout>
 
                 <StackLayout HorizontalOptions="Center" Margin="20,800,20,0">
@@ -54,9 +57,9 @@
                     <Grid RowDefinitions="100,5">
                         <Frame BackgroundColor="LightYellow" HasShadow="True"  CornerRadius="10">
                             <Grid>
-                                <Entry HorizontalOptions="StartAndExpand" x:Name="NumEntry" Placeholder="Prix à encherir" MaxLength="10" ClearButtonVisibility="WhileEditing"/>
+                                <Entry HorizontalOptions="StartAndExpand" x:Name="NumEntry" Placeholder="Prix à encherir" MaxLength="10" ClearButtonVisibility="WhileEditing" Text="{Binding PrixEncheri}"/>
 
-                                <Button HorizontalOptions="EndAndExpand" Text="Valider" BackgroundColor="#FF5733" TextColor="#581845" VerticalOptions="Center" CornerRadius="23" Clicked="AjoutUserEncheri_Clicked"/>
+                                <Button x:Name="BtnValider"  HorizontalOptions="EndAndExpand" Text="Valider" BackgroundColor="#FF5733" TextColor="#581845" VerticalOptions="Center" CornerRadius="23" Command="{Binding BoutonActionEncheri}" />
                             </Grid>
 
                         </Frame>

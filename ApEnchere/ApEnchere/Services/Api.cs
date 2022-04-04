@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -68,6 +69,28 @@ namespace ApEnchere.Services
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public async Task<T> GetOneAsyncID<T>(string paramUrl, List<T> param, string paramID)
+        {
+            int x = 0;
+            try
+            {
+                string jsonString = @"{'Id':'" + paramID + "'}";
+                var getResult = JObject.Parse(jsonString);
+
+                var clientHttp = new HttpClient();
+                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
+
+                var response = await clientHttp.PostAsync(Constantes.BaseApiAddress + paramUrl, jsonContent);
+                var json = await response.Content.ReadAsStringAsync();
+                T res = JsonConvert.DeserializeObject<T>(json, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return default(T);
             }
         }
 
@@ -145,6 +168,7 @@ namespace ApEnchere.Services
             }
         }
 
+
         /// <summary>
         /// Get a Jsonstring for all the parameters with their name and value
         /// </summary>
@@ -152,20 +176,20 @@ namespace ApEnchere.Services
         /// <returns></returns>
         /// 
         //Methode qui construit un body à partir d'un dictionnaire
-       /* public static string GetJsonString(Dictionary<string, object> parameters)
-        {
-            string jsonString = @"{";
-            int i = 0;
-            foreach (KeyValuePair<string, object> parameter in parameters)
-            {
-                i++;
-                jsonString += @"'" + parameter.Key + "':'" + parameter.Value + "'";
-                if (i != parameters.Count)
-                    jsonString += @",";
-            }
-            jsonString += @"}";
-            return jsonString;
-        }*/
+        /* public static string GetJsonString(Dictionary<string, object> parameters)
+         {
+             string jsonString = @"{";
+             int i = 0;
+             foreach (KeyValuePair<string, object> parameter in parameters)
+             {
+                 i++;
+                 jsonString += @"'" + parameter.Key + "':'" + parameter.Value + "'";
+                 if (i != parameters.Count)
+                     jsonString += @",";
+             }
+             jsonString += @"}";
+             return jsonString;
+         }*/
 
 
 
