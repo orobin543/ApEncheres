@@ -94,7 +94,7 @@
 
                             <Entry
                         x:Name="Email"
-                        Text="Email1"
+                        Text="Email"
                         BackgroundColor="PeachPuff"
                         TextColor="SaddleBrown"
                         WidthRequest="275"
