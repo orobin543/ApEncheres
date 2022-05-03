@@ -7,9 +7,9 @@ namespace ApEnchere
 {
      class Constantes
     {
-       public static string BaseApiAddress => "http://172.17.0.61:8000/"; // adresse privée
+      // public static string BaseApiAddress => "http://172.17.0.61:8000/"; // adresse privée
 
-      // public static string BaseApiAddress => "http://80.13.113.244:2081/"; //adresse publique
+       public static string BaseApiAddress => "http://80.13.113.244:2081/"; //adresse publique
 
         public const string DatabaseFilename = "Enchere.db3";
 

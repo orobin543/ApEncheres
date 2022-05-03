@@ -25,30 +25,40 @@ namespace ApEnchere.VueModeles
         private int _tempsRestantHeures;
         private int _tempsRestantMinutes;
         private int _tempsRestantSecondes;
-        private ObservableCollection<Encherir> _maListeSixDernieresEncheres;
         private Encherir _prixActuel;
         private string _idUser;
         private float _param;
         private float _newPrixEnchere;
         private string _pseudoUser;
+        public bool OnCancel = false;
 
         private readonly Api _apiServices = new Api();
         #endregion
 
         #region Constructeur
 
-        public EnchereEnCoursVueModeles(int param)
+        public EnchereEnCoursVueModeles(EnchereApi param)
 
         {
-            GetLaEnchere(param);
+            LaEnchere = param;
+            tmps = new DecompteTimer();
+            DateTime datefin = param.Datefin;
+            TimeSpan interval = datefin - DateTime.Now;
+            tmps.Start(interval);
+
+            //  GetLaEnchere(param);
             GetValeurActuelle(param);
-             GetLesEncheri(param);
+            GetLesEncheri(param);
             //   SetEnchereAuto();
             BoutonActionEncheri = new Command(ActionEncheri);
+            this.GetTimerRemaining(param.Datefin);
+
         }
         #endregion
 
         #region Getter/Setter
+
+
         public float PrixEncheri
         {
             get
@@ -61,7 +71,7 @@ namespace ApEnchere.VueModeles
             }
         }
 
-          public int Id
+        public int Id
         {
             get { return _id; }
             set { SetProperty(ref _id, value); }
@@ -124,7 +134,7 @@ namespace ApEnchere.VueModeles
 
         public string IdUser
         {
-            get {return _idUser;}
+            get { return _idUser; }
             set { SetProperty(ref _idUser, value); }
         }
 
@@ -144,15 +154,15 @@ namespace ApEnchere.VueModeles
         #region Méthodes
 
         //Va chercher les donner pour une enchère
-        public async Task<EnchereApi> GetLaEnchere(int param)
+     /*   public async Task<EnchereApi> GetLaEnchere(EnchereApi param)
         {
             LaEnchere = await _apiServices.GetOneAsync<EnchereApi>
-                ("api/getEnchere", EnchereApi.CollClasse, param);
+                ("api/getEnchere", EnchereApi.CollClasse, Id);
             return LaEnchere;
-        }
+        }*/
 
         //Permet de voir les dernier qui ont enchéri
-        public void GetLesEncheri(int param)
+        public void GetLesEncheri(EnchereApi param)
         {
 
             //petit programme indépendant du programme principal (qui peut intéragir avec)
@@ -164,7 +174,7 @@ namespace ApEnchere.VueModeles
                 while (true)
                 {
 
-                    LesEncheri = await _apiServices.GetAllAsyncID<Encherir>("api/getLastSixOffer", Encherir.CollClasse, "Id", param);
+                    LesEncheri = await _apiServices.GetAllAsyncID<Encherir>("api/getLastSixOffer", Encherir.CollClasse, "Id", LaEnchere.Id);
                     Thread.Sleep(2000);
                     //thread : espace qui permet a un programme de fonctionné de manière indépendante
                     //permet de libérer du temps de calcul 
@@ -195,66 +205,58 @@ namespace ApEnchere.VueModeles
           }*/
 
         //rend manuel l'envoie de l'encheri
-       /* public async void ActionEncheri()
-        {
-            if (PrixActuel != null)
-            {
-                if (PrixEncheri > PrixActuel.PrixEnchere)
-                {
-                    IdUser = await SecureStorage.GetAsync("ID");
-                    PseudoUser = await SecureStorage.GetAsync("Pseudo");
-                    /*if (PseudoUser != PrixActuel.Pseudo)
-                    {
-                    Encherir newEncherir = new Encherir(PrixEncheri, int.Parse(IdUser), LaEnchere.Id, 0, PseudoUser);
-                    await _apiServices.PostAsync<Encherir>(newEncherir, "api/postEncherir");
-                    }
-                    else
-                    {
-                        await Application.Current.MainPage.DisplayAlert("Vous ne pouvez pas enchérir sur vous-même! ", "Vous menez l'enchère!", "OK");
-                    }
-                }
-                else
-                {
-                    await Application.Current.MainPage.DisplayAlert("Vous devez proposer un prix plus grand que celui actuel! ", "Changez votre prix", "OK");
-                }
-            }
-        }*/
-
-        //Récupère les données d'un User
-      /* public async void GetUnUserId()
-        {
-
-            UnUser = await _apiServices.GetOneAsyncID<User>("api/getUser", User.CollClasse, Id.ToString());
-          
-        }*/
-
-
         public async void ActionEncheri()
         {
-                IdUser = await SecureStorage.GetAsync("id");
+            IdUser = await SecureStorage.GetAsync("id");
             PseudoUser = await SecureStorage.GetAsync("pseudo");
 
 
-                if (PrixActuel != null)
-                {
-                    int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(PrixEncheri, int.Parse(IdUser), LaEnchere.Id, 0, PseudoUser), "api/postEncherir");
+            if (PrixActuel != null)
+            {
+                int resultat = await _apiServices.PostAsync<Encherir>(new Encherir(PrixEncheri, int.Parse(IdUser), LaEnchere.Id, 0, PseudoUser), "api/postEncherir");
 
-                }
+            }
 
         }
 
-        public void GetValeurActuelle(int param)
+        public void GetValeurActuelle(EnchereApi param)
         {
-            int x = 0;
+            //int x = 0;
 
             Task.Run(async () =>
             {
                 while (true)
                 {
-                    PrixActuel = await _apiServices.GetOneAsyncID<Encherir>("api/getActualPrice", Encherir.CollClasse, param.ToString());
+                    PrixActuel = await _apiServices.GetOneAsyncID<Encherir>("api/getActualPrice", Encherir.CollClasse, LaEnchere.Id.ToString());
                     Thread.Sleep(2000);
                 }
             });
+        }
+
+        public void GetTimerRemaining(DateTime param)
+        {
+
+
+            Task.Run(async () =>
+            {
+                while (OnCancel == false)
+                {
+                    TempsRestantJour = tmps.TempsRestant.Days;
+                    TempsRestantHeures = tmps.TempsRestant.Hours;
+                    TempsRestantMinutes = tmps.TempsRestant.Minutes;
+                    TempsRestantSecondes = tmps.TempsRestant.Seconds;
+
+                    if (tmps.TempsRestant <= TimeSpan.Zero)
+                    {
+                        OnCancel = true;
+                    }
+
+                }
+
+
+
+            });
+
         }
         #endregion
     }

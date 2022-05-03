@@ -28,5 +28,33 @@ namespace ApEnchere.Vues
                   EnchereApi uneEnchère = await vueModel.GetLaEnchere(param);
               });*/
         }
+
+        private void CollectionView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            EnchereApi current = (EnchereApi)e.CurrentSelection.FirstOrDefault(); //récupère l'objet ici l'enchère
+
+            Navigation.PushAsync(new EnchereEnCours(current), true);
+        }
+        private void classique_Clicked(object sender, EventArgs e)
+        {
+            vueModel.VisibleEnchereEnCoursTypeClassique = true;
+            vueModel.VisibleEnchereEnCoursTypeInverse = false;
+            vueModel.VisibleEnchereEnCoursTypeFlash = false;
+
+        }
+
+        private void inverse_Clicked(object sender, EventArgs e)
+        {
+            vueModel.VisibleEnchereEnCoursTypeClassique = false;
+            vueModel.VisibleEnchereEnCoursTypeInverse = true;
+            vueModel.VisibleEnchereEnCoursTypeFlash = false;
+        }
+
+        private void flash_Clicked(object sender, EventArgs e)
+        {
+            vueModel.VisibleEnchereEnCoursTypeClassique = false;
+            vueModel.VisibleEnchereEnCoursTypeInverse = false;
+            vueModel.VisibleEnchereEnCoursTypeFlash = true;
+        }
     }
 }

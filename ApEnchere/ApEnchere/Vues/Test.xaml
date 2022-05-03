@@ -5,51 +5,10 @@
              x:Class="ApEnchere.Vues.Test"
                >
     <NavigationPage.TitleView>
-     <!--   <Label           FontSize="25"
-                     TextColor="Black"
-                     VerticalOptions="CenterAndExpand"
-                     HorizontalOptions="CenterAndExpand"
-                     HorizontalTextAlignment="Center"
-                     FontFamily="PatrickFont">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Number"/>
-                    <Span Text="Generator" TextColor="Red"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>-->
         <Label BackgroundColor="Pink"/>
     </NavigationPage.TitleView>
-
-
-    <!--  <Grid>
-        <BoxView>
-            <BoxView.Background>
-              <LinearGradientBrush>
-                    <GradientStop Color="#fad2e1" Offset="0"/>
-                    <GradientStop Color="#fde2e4" Offset="1"/>
-                    <GradientStop Color ="#fff1e6" Offset="2"/>
-                    <GradientStop Color="#eddcd2" Offset="3"/>
-                </LinearGradientBrush>
-
-                <LinearGradientBrush>
-                    <GradientStop Color="#581845" Offset="0"/>
-                    <GradientStop Color="#FF5733" Offset="1"/>
-                </LinearGradientBrush>
-            </BoxView.Background>
-        </BoxView>
-
-        <StackLayout HorizontalOptions="Center" Margin="20,100,20,0">
-            <Label Text="Test" TextColor="Black" FontSize="Large" BackgroundColor="Aqua"/>
-
-          
-
-            <Label Text="Test" TextColor="Black" FontSize="Large" BackgroundColor="Aqua"/>
-        </StackLayout>
-        
-        
-
-    </Grid>-->
+    
+    
     
 </ContentPage>
         

@@ -17,7 +17,7 @@ namespace ApEnchere.VueModeles
 
         #region Constructeur
 
-        public EnchereVueModeles(int param)
+        public EnchereVueModeles(EnchereApi param)
 
         {
            

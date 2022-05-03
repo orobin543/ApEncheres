@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace ApEnchere.Services
 {
-    class DecompteTimer : IDecompteTimer
+    public class DecompteTimer : IDecompteTimer
     {
         #region Private Variable
         private bool _Stoppe = false;

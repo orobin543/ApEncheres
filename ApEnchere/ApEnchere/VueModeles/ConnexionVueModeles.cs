@@ -21,13 +21,16 @@ namespace ApEnchere.VueModeles
         public ConnexionVueModeles()
         {
             GetUserByMailAndPass();
+            CommandBoutonRetour = new Command(ActionCommandBoutonRetour);
+            CommandBoutonConnexion = new Command(OnSubmit);
         }
 
-        
+
         #endregion
 
         #region Getters/Setters
-
+        public ICommand CommandBoutonRetour { get; }
+        public ICommand CommandBoutonConnexion { get; private set; }
         #endregion
 
         #region Methodes
@@ -37,6 +40,16 @@ namespace ApEnchere.VueModeles
            string id = await SecureStorage.GetAsync("id");
 
             User monUser = await _apiServices.GetOneAsync<User>("api/getUserByMailAndPass", User.CollClasse, Convert.ToInt32(id));
+        }
+
+        public void ActionCommandBoutonRetour()
+        {
+            Application.Current.MainPage = new Page1();
+        }
+
+        public async void OnSubmit()
+        {
+           
         }
         #endregion
     }

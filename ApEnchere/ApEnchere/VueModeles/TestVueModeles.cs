@@ -14,8 +14,15 @@ namespace ApEnchere.VueModeles
     class TestVueModeles : BaseVueModeles
     {
         #region Attributs
-        EnchereApi _monEnchere;
-        ObservableCollection<Encherir> _lesEncherir;
+        
+        ObservableCollection<EnchereApi> _maListeEncheres;
+        ObservableCollection<EnchereApi> _maListeEnchereEnCours;
+        private ObservableCollection<EnchereApi> _maListeEncheresEnCoursTypeClassique;
+        private ObservableCollection<EnchereApi> _maListeEncheresEnCoursTypeInverse;
+        private ObservableCollection<EnchereApi> _maListeEncheresEnCoursTypeFlash;
+        private bool _visibleEnchereEnCoursTypeClassique = true;
+        private bool _visibleEnchereEnCoursTypeInverse = true;
+        private bool _visibleEnchereEnCoursTypeFlash = true;
 
         private readonly Api _apiServices = new Api();
         #endregion
@@ -25,36 +32,80 @@ namespace ApEnchere.VueModeles
         public TestVueModeles()
 
         {
-            //GetLaEnchere(param);
+            GetListeEncheres();
+            GetListeEnchereEnCours();
+            GetListeEnCheresEnCoursTypeClassique(1);
+            GetListeEncheresEnCoursTypeInverse(2);
+            GetListeEncheresEnCoursTypeFlash(3);
         }
         #endregion
 
-        #region Getter/Setter
+        #region Getters/Setters
 
-        public EnchereApi LaEnchere
+        public ObservableCollection<EnchereApi> MaListeEncheres
         {
-            get { return _monEnchere; }
+            get { return _maListeEncheres; }
 
 
-            set { SetProperty(ref _monEnchere, value); }
+            set { SetProperty(ref _maListeEncheres, value); }
         }
 
-        public ObservableCollection<Encherir> LesEncherir
+        public ObservableCollection<EnchereApi> MaListeEnchereEnCours
         {
-            get { return _lesEncherir; }
+            get { return _maListeEnchereEnCours; }
 
-            set { SetProperty(ref _lesEncherir, value); }
+            set { SetProperty(ref _maListeEnchereEnCours, value); }
         }
+
+
+        public ObservableCollection<EnchereApi> MaListeEncheresEnCoursTypeClassique
+        {
+            get { return _maListeEncheresEnCoursTypeClassique; }
+            set { SetProperty(ref _maListeEncheresEnCoursTypeClassique, value); }
+        }
+
+        public ObservableCollection<EnchereApi> MaListeEncheresEnCoursTypeInverse
+        {
+            get { return _maListeEncheresEnCoursTypeInverse; }
+            set { SetProperty(ref _maListeEncheresEnCoursTypeInverse, value); }
+        }
+
+        public ObservableCollection<EnchereApi> MaListeEncheresEnCoursTypeFlash
+        {
+            get { return _maListeEncheresEnCoursTypeFlash; }
+            set { SetProperty(ref _maListeEncheresEnCoursTypeFlash, value); }
+        }
+
+        public bool VisibleEnchereEnCoursTypeClassique
+        {
+            get { return _visibleEnchereEnCoursTypeClassique; }
+            set { SetProperty(ref _visibleEnchereEnCoursTypeClassique, value); }
+        }
+
+        public bool VisibleEnchereEnCoursTypeInverse
+        {
+            get { return _visibleEnchereEnCoursTypeInverse; }
+            set { SetProperty(ref _visibleEnchereEnCoursTypeInverse, value); }
+        }
+        public bool VisibleEnchereEnCoursTypeFlash
+        {
+            get { return _visibleEnchereEnCoursTypeFlash; }
+            set { SetProperty(ref _visibleEnchereEnCoursTypeFlash, value); }
+        }
+
         #endregion
 
         #region Méthodes
-
-        //Va chercher les donner pour une enchère
-        public async Task<EnchereApi> GetLaEnchere(int param)
+        public async void GetListeEncheres()
         {
-            LaEnchere = await _apiServices.GetOneAsync<EnchereApi>
-                ("api/getEnchere", EnchereApi.CollClasse, param);
-            return LaEnchere;
+            MaListeEncheres = await _apiServices.GetAllAsync<EnchereApi>
+                   ("api/getEnchere", EnchereApi.CollClasse);
+        }
+
+        public async void GetListeEnchereEnCours()
+        {
+            MaListeEnchereEnCours = await _apiServices.GetAllAsync<EnchereApi>
+                   ("api/getEncheresEnCours", EnchereApi.CollClasse);
         }
 
         /*public async void PostEnchere(Encheres uneEnchere)
@@ -63,6 +114,28 @@ namespace ApEnchere.VueModeles
             Resultat = await _apiServices.PostAsync<Encheres>
                    (uneEnchere, "api/postEnchere");
         }*/
-        #endregion
-    }
+
+        public async void GetListeEnCheresEnCoursTypeClassique(int id)
+        {
+            MaListeEncheresEnCoursTypeClassique =
+                    await _apiServices.GetAllAsyncID<EnchereApi>("api/getEncheresEnCours", EnchereApi.CollClasse, "IdTypeEnchere", id);
+            EnchereApi.CollClasse.Clear();
+
+        }
+
+        public async void GetListeEncheresEnCoursTypeInverse(int id)
+        {
+            MaListeEncheresEnCoursTypeInverse = await _apiServices.GetAllAsyncID<EnchereApi>
+                ("api/getEncheresEnCours", EnchereApi.CollClasse, "IdTypeEnchere", id);
+            EnchereApi.CollClasse.Clear();
+        }
+        public async void GetListeEncheresEnCoursTypeFlash(int id)
+        {
+            MaListeEncheresEnCoursTypeFlash = await _apiServices.GetAllAsyncID<EnchereApi>
+                ("api/getEncheresEnCours", EnchereApi.CollClasse, "IdTypeEnchere", id);
+            EnchereApi.CollClasse.Clear();
+        }
+        
+    #endregion
+}
 }
