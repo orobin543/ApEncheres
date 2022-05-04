@@ -12,7 +12,9 @@ namespace ApEnchere.VueModeles
     {
         #region Attributs
         private ObservableCollection<EnchereApi> _maListeEncheres;
+        public List<EnchereApi> EnchereMagasin = new List<EnchereApi>();
         private readonly Api _apiServices = new Api();
+
         #endregion
 
         #region Constructeurs
@@ -47,6 +49,18 @@ namespace ApEnchere.VueModeles
             MaListeEncheres = await _apiServices.GetAllAsync<EnchereApi>("api/getEnchere", EnchereApi.CollClasse);
             EnchereApi.CollClasse.Clear();
         }
+
+        /*public async void GetListeParMagasin()
+        {
+            ListeParMagasin = await _apiServices.GetAllAsync<EnchereApi>("api/getEnchere", EnchereApi.CollClasse);
+            Magasin unMagasin;
+            if (unMagasin == true )
+            {
+                Console
+            }
+        }*/
+
+
         #endregion
     }
 }

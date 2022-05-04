@@ -1,6 +1,9 @@
-﻿using ApEnchere.VueModeles;
+﻿using ApEnchere.Modeles;
+using ApEnchere.Modeles.Api;
+using ApEnchere.VueModeles;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +18,7 @@ namespace ApEnchere.Vues
     public partial class Map : ContentPage
     {
         MapVueModeles vueModeles;
+        public ObservableCollection<EnchereApi> ListeEnchere = new ObservableCollection<EnchereApi>();
         public Map()
         {
             InitializeComponent();
@@ -52,7 +56,26 @@ namespace ApEnchere.Vues
             {
                 // Unable to get location
             }
+
+           
+    }
+
+        private void Pin_MarkerClicked(object sender, PinClickedEventArgs e)
+        {
+            ListeEnchere.Clear();
+            Pin p = (Pin)sender;
+
+            foreach(EnchereApi uneEnchere in vueModeles.MaListeEncheres)
+            {
+                Position EnchePos = new Position(uneEnchere.LeMagasin.Latitude, uneEnchere.LeMagasin.Longitude);
+                if (EnchePos == p.Position)
+                {
+                    ListeEnchere.Add(uneEnchere);
+                }
+            }
+            Liste.ItemsSource = ListeEnchere;
         }
+
     }
 
 }
