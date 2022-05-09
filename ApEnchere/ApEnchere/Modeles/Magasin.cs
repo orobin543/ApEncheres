@@ -18,7 +18,6 @@ namespace ApEnchere.Modeles
         private double _latitude;
         private double _longitude;
         private int _portable;
-        private Produit _lesProduits;
         private Position _position;
         #endregion
 
@@ -48,7 +47,6 @@ namespace ApEnchere.Modeles
         public double Latitude { get => _latitude; set => _latitude = value; }
         public double Longitude { get => _longitude; set => _longitude = value; }
         public int Portable { get => _portable; set => _portable = value; }
-        public Produit LesProduits { get => _lesProduits; set => _lesProduits = value; }
         public Position Position { get => _position; set => _position = value; }
 
         #endregion

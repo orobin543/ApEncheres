@@ -4,6 +4,8 @@ using Xamarin.Essentials;
 using Xamarin.Forms.Maps;
 using ApEnchere.VueModeles;
 using System;
+using ApEnchere.Modeles.Api;
+using System.Collections.ObjectModel;
 
 namespace ApEnchere.Vues
 {
@@ -11,6 +13,7 @@ namespace ApEnchere.Vues
     public partial class Map : ContentPage
     {
         Map2VueModeles vueModeles;
+        public ObservableCollection<EnchereApi> ListeEnchere = new ObservableCollection<EnchereApi>();
         public Map()
         {
             InitializeComponent();
