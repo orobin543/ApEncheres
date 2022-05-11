@@ -17,6 +17,7 @@ namespace ApEnchere.VueModeles
     {
         #region Attributs
         public User _unUser;
+      private double _prixHT;
         public int _id;
         EnchereApi _monEnchere;
         ObservableCollection<Encherir> _lesEncherir;
@@ -31,6 +32,7 @@ namespace ApEnchere.VueModeles
         private float _newPrixEnchere;
         private string _pseudoUser;
         public bool OnCancel = false;
+        private string _TVA;
 
         private readonly Api _apiServices = new Api();
         #endregion
@@ -52,13 +54,23 @@ namespace ApEnchere.VueModeles
             //   SetEnchereAuto();
             BoutonActionEncheri = new Command(ActionEncheri);
             this.GetTimerRemaining(param.Datefin);
+            StockerTVA(param);
 
         }
         #endregion
 
         #region Getter/Setter
 
-
+       public double PrixHT
+        {
+            get { return _prixHT; }
+            set { SetProperty(ref _prixHT, value); }
+        }
+        public string TVA
+        {
+            get { return _TVA; }
+            set { SetProperty(ref _TVA, value); }
+        }
         public float PrixEncheri
         {
             get
@@ -228,6 +240,8 @@ namespace ApEnchere.VueModeles
                 while (true)
                 {
                     PrixActuel = await _apiServices.GetOneAsyncID<Encherir>("api/getActualPrice", Encherir.CollClasse, LaEnchere.Id.ToString());
+                    CalculerPrixHt(param); //Appelle la méthode
+                    CalculerTVA(param); 
                     Thread.Sleep(2000);
                 }
             });
@@ -257,6 +271,45 @@ namespace ApEnchere.VueModeles
 
             });
 
+        }
+
+        //Méthode pour calculer le prixHT
+        public void CalculerPrixHt(EnchereApi param)
+        { 
+            
+            //PrixHT = PrixActuel / Convert.ToDouble(TVA); 
+               // PrixHT = (PrixEncheri/PrixEncheri)*100;
+               if (PrixActuel!= null)
+            {
+                  PrixHT = (PrixActuel.PrixEnchere/120)*100;
+                }
+
+        }
+
+        //Méthode pour stocker sur le téléphone l'objet voulu
+        public async void StockerTVA(EnchereApi TVA)
+        {
+            try
+            {
+                await SecureStorage.SetAsync("TVA", LaEnchere.TVA);
+
+            }
+
+            catch (Exception ex)
+            {
+                //Possible that device doesn't support secure storage on device.
+            }
+        }
+
+        //Méthode pour caculer la TVA
+        public async void CalculerTVA(EnchereApi param)
+        {
+            double resultat;
+            
+            resultat = PrixHT * 0.2;
+                TVA = Convert.ToString(resultat);
+
+            
         }
         #endregion
     }

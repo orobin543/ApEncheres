@@ -17,6 +17,7 @@ namespace ApEnchere.Modeles.Api
         private Magasin _leMagasin;
         private TypeEnchere _leTypeEnchere;
         private Produit _leProduit;
+        private string _TVA;
         
 
             #endregion
@@ -51,10 +52,11 @@ namespace ApEnchere.Modeles.Api
             public Produit LeProduit { get => _leProduit; set => _leProduit = value; }
         public TypeEnchere LeTypeEnchere { get => _leTypeEnchere; set => _leTypeEnchere = value; }
         public Magasin LeMagasin { get => _leMagasin; set => _leMagasin = value; }
-            #endregion
+        public string TVA { get => _TVA; set => _TVA = value; }
+        #endregion
 
-            #region Methodes
+        #region Methodes
 
-            #endregion
-        }
+        #endregion
+    }
     }

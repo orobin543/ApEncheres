@@ -44,10 +44,15 @@
 
                     </Frame>
                     <Label Text="{Binding PrixActuel.PrixEnchere, StringFormat='{0} €'}"  HorizontalOptions="Center" TextColor="LightYellow" FontSize="32"/>
+                <!-- Label pour afficher le Prix HT-->
+                <Label Text="{Binding PrixHT, StringFormat='{0} €'}" HorizontalOptions="Center" TextColor="LightYellow" FontSize="32"/>
+                <!-- Label pour afficher la TVA-->
+                    <Label Text="{Binding TVA, StringFormat='{0} €'}" HorizontalOptions="Center" TextColor="LightYellow" FontSize="32"/>
+
                 </StackLayout>
 
        
-            <StackLayout HorizontalOptions="Center" Margin="20,550,20,0">
+            <StackLayout HorizontalOptions="Center" Margin="20,680,20,0">
                 <ScrollView HeightRequest="200">
                         <Frame BackgroundColor="#FF3C38" HasShadow="True"  CornerRadius="10">
                              
@@ -65,6 +70,8 @@
                                                 <Grid>
                                                     <Label Text="{Binding Pseudo}" TextColor="#581845" HorizontalOptions="Center"/>
                                                     <Label Text="{Binding PrixEnchere}" TextColor="#581845" HorizontalOptions="Start"/>
+                                                    
+                                                    <Label/>
 
                                                 </Grid>
                                             </Frame>
@@ -76,7 +83,7 @@
                     </ScrollView> 
             </StackLayout>
 
-                <StackLayout HorizontalOptions="Center" Margin="20, 750, 20, 0">
+                <StackLayout HorizontalOptions="Center" Margin="20, 930, 20, 0">
                     <Label Text="{Binding LaEnchere.Datedebut, StringFormat='Date Début: {0}'}" TextColor="LightYellow" HorizontalOptions="CenterAndExpand" />
 
                     <ContentView>
@@ -112,7 +119,7 @@
                         </Frame>
                     </ContentView>
                 </StackLayout>
-                 <StackLayout HorizontalOptions="Center" Margin="20,950,20,10">
+                 <StackLayout HorizontalOptions="Center" Margin="20,1150,20,10">
 
                     <Grid RowDefinitions="100,5">
                         <Frame BackgroundColor="LightYellow" HasShadow="True"  CornerRadius="10">
